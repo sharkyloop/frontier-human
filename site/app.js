@@ -246,6 +246,9 @@ function answersFromState() {
   return items().map((it) => state.answers[it.id]);
 }
 
+// In-app browsers get extra scroll room on the exam page (see .inapp in styles.css).
+if (/Twitter|FBAN|FBAV|Instagram|MicroMessenger|Weibo|Line\//i.test(navigator.userAgent)) document.documentElement.classList.add("inapp");
+
 /* ---------- Chrome: theme + language ---------- */
 
 const themeBtn = document.getElementById("theme");

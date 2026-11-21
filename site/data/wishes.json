@@ -20,6 +20,20 @@
       "wish": "social media button should adapt dark mode",
       "change": "The X and Discord buttons and the Follow Sharky card now follow the dark theme instead of staying white.",
       "change_zh": "X 和 Discord 按钮以及“关注 Sharky”卡片现在会跟随深色主题，不再保持白色。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "Make all color and vertical align, change the logo with a cute shark",
+      "change": "The header logo is now Sharky, and the social, language and theme controls share one colour scheme and one height.",
+      "change_zh": "顶部 logo 换成了 Sharky，社交、语言和主题按钮统一了配色和高度。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "It cannot scroll to the bottom",
+      "change": "Added scroll room on the exam page inside in-app browsers so the last option clears the bottom bar.",
+      "change_zh": "在应用内置浏览器里给答题页加了滚动空间，最后一个选项不再被底栏挡住。"
     }
   ]
 }
