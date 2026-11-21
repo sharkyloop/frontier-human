@@ -35,42 +35,41 @@ const FONTS = `
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, "Liberation Mono", "DejaVu Sans Mono", var(--cjk), monospace;`;
 
 const COVER = {
-  en: { h1: "What did they <mark>mean?</mark>", agent: "AGENT", human: "HUMAN", q: "Should I delete the old migration? Yes or no?", a: "or" },
-  zh: { h1: "何<mark>意味？</mark>", agent: "AGENT", human: "人类", q: "要我删掉旧的 migration 吗？删吗？", a: "吗" }
+  en: { h1: "What did they <mark>mean?</mark>", agent: "Agent", human: "Human", q: "Should I delete the old migration? Yes or no?", a: "or" },
+  zh: { h1: "何<mark>意味？</mark>", agent: "Agent", human: "人类", q: "要我删掉旧的 migration 吗？删吗？", a: "吗" }
 };
 
+// Covers follow the site's plush sharkyloop look: white ground, stitched dashes, foam patches, rounded type.
 const shell = (body, lang) => `<!doctype html><html lang="${lang === "zh" ? "zh-CN" : "en"}"><head><meta charset="utf-8"><style>
-:root {${FONTS} --bg:${L.bg}; --fg:${L.ink}; --accent:${L.accent}; --panel:#f8fbff; }
+:root {${FONTS} --round: ui-rounded, "SF Pro Rounded", "Nunito", "Varela Round", system-ui, -apple-system, "Segoe UI", var(--cjk);
+  --fg:#2f5f85; --deep:${L.ink}; --accent:#5b8db5; --aqua:${L.accent}; --foam:${L.bg}; --stitch:#b9dcea; --line:#cfe6ee; }
 * { box-sizing: border-box; margin: 0; }
-body { width: 1200px; height: 630px; overflow: hidden; background: var(--bg); color: var(--fg); font-family: var(--display);
-  border: 14px solid var(--fg); display: grid; grid-template-rows: 86px 1fr; }
-.bar { display: flex; justify-content: space-between; align-items: stretch; border-bottom: 8px solid var(--fg); font-weight: 900; font-size: 32px; }
-.bar > div { display: flex; align-items: center; padding: 0 28px; }
-.bar span { background: var(--accent); color: #fff; padding: 0 6px; margin-left: 2px; }
-.bar .r { border-left: 8px solid var(--fg); font-family: var(--mono); font-size: 22px; font-weight: 700; }
-.main { display: grid; grid-template-columns: 420px 1fr; }
-.logo { border-right: 8px solid var(--fg); display: grid; place-items: center; background: var(--panel); }
-.logo svg { width: 352px; height: 352px; }
-.side { padding: 34px 36px; display: grid; align-content: center; gap: 26px; min-width: 0; }
-h1 { font-size: 92px; line-height: 0.9; letter-spacing: -0.05em; text-transform: uppercase; }
-html[lang="zh-CN"] h1 { font-size: 120px; letter-spacing: 0; }
-mark { background: var(--accent); color: #fff; padding: 0 8px; }
-.chat { border: 6px solid var(--fg); box-shadow: 10px 10px 0 var(--fg); background: var(--panel); }
-.turn { display: grid; grid-template-columns: 110px 1fr; }
-.turn + .turn { border-top: 6px solid var(--fg); }
-.who { font-family: var(--mono); font-weight: 800; font-size: 16px; letter-spacing: 0.08em; padding: 14px; border-right: 6px solid var(--fg); }
-.txt { font-family: var(--mono); font-weight: 700; font-size: 24px; line-height: 1.25; padding: 12px 16px; }
-.reply .who { background: var(--fg); color: var(--bg); }
-.reply .txt { font-family: var(--display); font-weight: 900; font-size: 64px; line-height: 1; padding: 8px 16px 14px; }
-.score { display: grid; grid-template-columns: auto 1fr; border: 8px solid var(--fg); box-shadow: 12px 12px 0 var(--fg); }
-.num { background: var(--accent); color: #fff; font-weight: 900; font-size: 200px; line-height: 0.82; letter-spacing: -0.06em; padding: 22px 26px 14px; font-variant-numeric: tabular-nums; }
-.num small { font-size: 64px; letter-spacing: -0.02em; }
-.band { font-weight: 900; text-transform: uppercase; line-height: 0.98; letter-spacing: -0.03em; padding: 22px 26px; background: var(--panel); display: flex; align-items: center; font-size: var(--bs); }
-.score .band { border-left: 8px solid var(--fg); }
-</style></head><body>
-<div class="bar"><div>FRONTIER<span>HUMAN</span></div><div class="r">frontier-human.sharkyloop.com</div></div>
+body { width: 1200px; height: 630px; overflow: hidden; background: #fff; color: var(--fg); font-family: var(--round); padding: 20px; }
+.frame { height: 100%; border: 4px dashed var(--stitch); border-radius: 44px; display: grid; grid-template-rows: 92px 1fr; overflow: hidden; }
+.bar { display: flex; justify-content: space-between; align-items: center; padding: 0 34px; border-bottom: 4px dashed var(--line); font-weight: 800; font-size: 40px; letter-spacing: -0.01em; color: var(--deep); }
+.bar span { color: var(--aqua); }
+.bar .r { font-size: 22px; font-weight: 700; letter-spacing: 0; padding: 8px 22px; background: var(--foam); border-radius: 999px; }
+.main { display: grid; grid-template-columns: 404px 1fr; align-items: center; min-height: 0; }
+.logo { margin-left: 44px; width: 340px; height: 340px; display: grid; place-items: center; background: var(--foam); border: 4px dashed var(--stitch); border-radius: 60px; }
+.logo svg { width: 256px; height: 256px; }
+.side { padding: 20px 48px 20px 16px; display: grid; align-content: center; gap: 26px; min-width: 0; }
+h1 { font-size: 92px; font-weight: 900; line-height: 1; letter-spacing: -0.03em; color: var(--deep); }
+html[lang="zh-CN"] h1 { font-size: 116px; letter-spacing: 0; }
+mark { display: inline-block; background: var(--foam); color: var(--accent); border: 5px dashed var(--stitch); border-radius: 0.28em; padding: 0 0.16em 0.04em; transform: rotate(-2deg); }
+.chat { display: grid; gap: 12px; }
+.turn { display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: start; }
+.who { justify-self: end; margin-top: 10px; padding: 4px 14px; border-radius: 999px; background: var(--foam); color: var(--deep); font-weight: 800; font-size: 17px; white-space: nowrap; }
+.txt { justify-self: start; padding: 12px 20px; background: var(--foam); border-radius: 8px 26px 26px 26px; font-weight: 600; font-size: 24px; line-height: 1.25; }
+.reply .who { background: var(--deep); color: #fff; }
+.reply .txt { background: var(--deep); color: #fff; font-weight: 900; font-size: 64px; line-height: 1; padding: 6px 28px 14px; border-radius: 8px 30px 30px 30px; }
+.score { display: grid; grid-template-columns: auto 1fr; border: 4px dashed var(--stitch); border-radius: 52px; overflow: hidden; box-shadow: 0 0 0 8px #fff, 0 16px 36px rgb(63 114 156 / 0.18); }
+.num { background: var(--deep); color: #fff; font-weight: 900; font-size: 190px; line-height: 0.88; letter-spacing: -0.04em; padding: 28px 40px 24px 32px; border-radius: 0 68px 68px 0; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.num small { font-size: 62px; letter-spacing: -0.01em; }
+.band { font-weight: 800; line-height: 1.06; letter-spacing: -0.02em; padding: 22px 28px; display: flex; align-items: center; font-size: var(--bs); color: var(--deep); }
+</style></head><body><div class="frame">
+<div class="bar"><div>frontier<span>human</span></div><div class="r">frontier-human.sharkyloop.com</div></div>
 <div class="main"><div class="logo">${logoSvg(mark(L))}</div><div class="side">${body}</div></div>
-</body></html>`;
+</div></body></html>`;
 
 const defaultCover = (lang) => {
   const c = COVER[lang];

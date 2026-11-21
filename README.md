@@ -12,8 +12,8 @@ An intent-detection benchmark for humans. An AI agent asks a clarifying question
 - Share to X, LinkedIn, Facebook, Reddit, Weibo, WeChat (QR code) or the system share sheet. Shared links point at a static page per score and language (`/s/<score>/?r=…`, `/s/<score>/zh/?r=…`) whose Open Graph and Twitter tags show that score's cover, and the page opens the full report.
 - "Follow Sharky" card on the report (sharkyloop's plush style: mascot, stitched border, pill links to X and Discord), plus a small Sharky chip (mascot and round X and Discord buttons) in the header and the mobile footer.
 - "↓ Cover" saves a 1080×1350 PNG result card (score, verdict, QR of the report link) in the current language and theme, for places where links don't preview.
-- Pixel-art logo (a human and a question mark on a 16×16 grid) used for the header, favicons and every cover.
-- Brutalist blue design with light and dark themes (follows `prefers-color-scheme`; the toggle choice is saved), tuned for phones down to 360 px wide.
+- Pixel-art logo (a human and a question mark on a 16×16 grid) in the sharkyloop palette, used for the header, favicons and every cover.
+- Plush sharkyloop design (rounded type, shark blues, foam fills, dashed "stitched" outlines, the shark mascot on the home screen) with light and dark themes (follows `prefers-color-scheme`; the toggle choice is saved), tuned for phones down to 360 px wide.
 - Google Analytics (GA4). The measurement ID is set once, in the first script in `site/index.html`.
 
 ## Layout

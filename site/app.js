@@ -351,6 +351,7 @@ function renderIntro() {
         <button class="btn btn-accent btn-xl" data-go="start">${t("start")(total)}</button>
         ${secondary}
       </div>
+      <a class="intro-sharky" href="${FOLLOW.home}" target="_blank" rel="noopener" aria-label="sharkyloop"><img src="sharky.webp" width="320" height="320" alt="" /></a>
     </section>
   `)
   );
@@ -670,13 +671,12 @@ function wrapLines(ctx, str, width) {
 }
 
 function coverCanvas(answers, link) {
-  const W = 1080, H = 1350, M = 64, B = 14;
+  const W = 1080, H = 1350, M = 72;
   const css = getComputedStyle(document.documentElement);
   const v = (k) => css.getPropertyValue(k).trim();
-  const c = { bg: v("--bg"), fg: v("--fg"), panel: v("--panel"), accent: v("--accent"), on: v("--on-accent"), shade: v("--shade"), line: v("--line") };
+  const c = { bg: v("--bg"), fg: v("--fg"), panel: v("--panel"), foam: v("--foam"), stitch: v("--stitch"), line: v("--line"), deep: v("--deep"), aqua: v("--aqua"), muted: v("--muted"), on: v("--on-accent") };
   const theme = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
-  const display = `"Arial Black", "Helvetica Neue", Helvetica, Arial, ${css.getPropertyValue("--cjk")}`;
-  const mono = css.getPropertyValue("--mono");
+  const round = v("--round");
   const total = items().length;
   const you = score(answers);
   const verdict = t("bands")[bandFor(you).id][0];
@@ -685,82 +685,100 @@ function coverCanvas(answers, link) {
   canvas.width = W;
   canvas.height = H;
   const ctx = canvas.getContext("2d");
-  const box = (x, y, w, h, fill, shadow = 0) => {
-    if (shadow) { ctx.fillStyle = c.shade; ctx.fillRect(x + shadow, y + shadow, w, h); }
-    ctx.fillStyle = c.line;
-    ctx.fillRect(x, y, w, h);
+  const pill = (x, y, w, h, r) => {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  };
+  // A stitched patch: rounded fill with a dashed seam.
+  const patch = (x, y, w, h, r, fill, seam = c.stitch) => {
+    pill(x, y, w, h, r);
     ctx.fillStyle = fill;
-    ctx.fillRect(x + B, y + B, w - 2 * B, h - 2 * B);
+    ctx.fill();
+    ctx.save();
+    ctx.setLineDash([16, 12]);
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = seam;
+    pill(x + 2.5, y + 2.5, w - 5, h - 5, r - 2.5);
+    ctx.stroke();
+    ctx.restore();
+  };
+  const seamLine = (y) => {
+    ctx.save();
+    ctx.setLineDash([16, 12]);
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = c.line;
+    ctx.beginPath();
+    ctx.moveTo(M, y);
+    ctx.lineTo(W - M, y);
+    ctx.stroke();
+    ctx.restore();
   };
 
-  ctx.fillStyle = c.line;
-  ctx.fillRect(0, 0, W, H);
   ctx.fillStyle = c.bg;
-  ctx.fillRect(B, B, W - 2 * B, H - 2 * B);
+  ctx.fillRect(0, 0, W, H);
+  patch(28, 28, W - 56, H - 56, 64, c.panel);
 
   ctx.textBaseline = "alphabetic";
-  ctx.font = `900 46px ${display}`;
-  ctx.fillStyle = c.fg;
-  ctx.fillText("FRONTIER", M, 104);
-  const fw = ctx.measureText("FRONTIER").width;
-  const hw = ctx.measureText("HUMAN").width;
-  ctx.fillStyle = c.accent;
-  ctx.fillRect(M + fw + 4, 62, hw + 16, 56);
-  ctx.fillStyle = c.on;
-  ctx.fillText("HUMAN", M + fw + 12, 104);
-  ctx.fillStyle = c.line;
-  ctx.fillRect(0, 150, W, B);
+  ctx.font = `800 54px ${round}`;
+  ctx.fillStyle = c.deep;
+  ctx.fillText("frontier", M, 136);
+  ctx.fillStyle = c.aqua;
+  ctx.fillText("human", M + ctx.measureText("frontier").width, 136);
+  seamLine(182);
 
-  const cell = 24, logo = cell * 16;
-  box(M, 214, logo + 64, logo + 64, c.panel, 16);
-  drawLogo(ctx, M + 32, 246, cell, LOGO_COLORS[theme]);
+  const side = 420, cell = 20, top = 232;
+  patch(M, top, side, side, 72, c.foam);
+  drawLogo(ctx, M + (side - cell * 16) / 2, top + (side - cell * 16) / 2, cell, LOGO_COLORS[theme]);
 
-  const sx = M + logo + 64 + 40, sw = W - M - sx;
-  box(sx, 214, sw, logo + 64, c.accent, 16);
+  const sx = M + side + 32, sw = W - M - sx;
+  pill(sx, top, sw, side, 72);
+  ctx.fillStyle = c.deep;
+  ctx.fill();
   ctx.fillStyle = c.on;
-  ctx.font = `900 250px ${display}`;
+  ctx.font = `900 250px ${round}`;
   const num = String(you);
   const nw = ctx.measureText(num).width;
-  ctx.font = `900 72px ${display}`;
+  ctx.font = `900 76px ${round}`;
   const dw = ctx.measureText(`/${total}`).width;
   const nx = sx + (sw - nw - dw) / 2;
-  ctx.font = `900 250px ${display}`;
-  ctx.fillText(num, nx, 214 + logo / 2 + 120);
-  ctx.font = `900 72px ${display}`;
-  ctx.fillText(`/${total}`, nx + nw + 4, 214 + logo / 2 + 120);
+  ctx.font = `900 250px ${round}`;
+  ctx.fillText(num, nx, top + side / 2 + 88);
+  ctx.font = `900 76px ${round}`;
+  ctx.fillText(`/${total}`, nx + nw + 4, top + side / 2 + 88);
 
-  ctx.fillStyle = c.fg;
-  let size = 92;
+  ctx.fillStyle = c.deep;
+  let size = 96;
   let lines;
   do {
-    ctx.font = `900 ${size}px ${display}`;
-    lines = wrapLines(ctx, lang === "zh" ? verdict : verdict.toUpperCase(), W - 2 * M);
     size -= 6;
-  } while (lines.length > 2 && size > 40);
-  lines.slice(0, 2).forEach((l, k) => ctx.fillText(l, M, 820 + k * (size + 6)));
+    ctx.font = `800 ${size}px ${round}`;
+    lines = wrapLines(ctx, verdict, W - 2 * M);
+  } while (lines.length > 2 && size > 46);
+  lines.slice(0, 2).forEach((l, k) => ctx.fillText(l, M, 770 + k * (size + 10)));
 
   const qy = 1000, qs = 270;
-  ctx.fillStyle = c.line;
-  ctx.fillRect(0, qy - 40, W, B);
-  ctx.fillStyle = c.line;
-  ctx.fillRect(M, qy, qs, qs);
-  ctx.fillStyle = "#ffffff";
-  ctx.fillRect(M + 10, qy + 10, qs - 20, qs - 20);
+  seamLine(qy - 44);
+  patch(M, qy, qs, qs, 36, "#ffffff", "#b9dcea");
   if (typeof window.qrcode === "function") {
     const qr = window.qrcode(0, "M");
     qr.addData(link);
     qr.make();
     const n = qr.getModuleCount();
-    const m = Math.floor((qs - 44) / n);
+    const m = Math.floor((qs - 56) / n);
     const ox = M + Math.round((qs - m * n) / 2), oy = qy + Math.round((qs - m * n) / 2);
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#1f4466";
     for (let r = 0; r < n; r++) for (let k = 0; k < n; k++) if (qr.isDark(r, k)) ctx.fillRect(ox + k * m, oy + r * m, m, m);
   }
-  ctx.fillStyle = c.fg;
-  ctx.font = `900 44px ${display}`;
+  ctx.fillStyle = c.deep;
+  ctx.font = `800 44px ${round}`;
   wrapLines(ctx, t("cardScan"), W - M * 2 - qs - 40).slice(0, 2).forEach((l, k) => ctx.fillText(l, M + qs + 40, qy + 90 + k * 54));
-  ctx.font = `700 28px ${mono}`;
-  ctx.fillStyle = c.fg;
+  ctx.font = `700 28px ${round}`;
+  ctx.fillStyle = c.muted;
   ctx.fillText(ROOT.host + ROOT.pathname.replace(/\/$/, ""), M + qs + 40, qy + qs - 24);
   return canvas;
 }

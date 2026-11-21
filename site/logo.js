@@ -19,8 +19,8 @@ export const LOGO = [
 ];
 
 export const LOGO_COLORS = {
-  light: { ink: "#0a1a3f", accent: "#1d3fd6", bg: "#eef4ff" },
-  dark: { ink: "#e8f0ff", accent: "#7ea6ff", bg: "#050b1c" }
+  light: { ink: "#3f729c", accent: "#4fb3c2", bg: "#e8f6f8" },
+  dark: { ink: "#dcf0f7", accent: "#7fd3df", bg: "#0b1d2c" }
 };
 
 export function logoPath(ch) {
