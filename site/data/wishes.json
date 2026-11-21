@@ -69,6 +69,13 @@
       "wish": "Change the top left logo more align to frontier human topic",
       "change": "New pixel logo: Sharky the agent with a question mark over its head, wondering what the human meant.",
       "change_zh": "新的像素 logo：头顶问号的 Sharky，正在琢磨人类到底是什么意思。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "Make questions more interesting",
+      "change": "Eight of the twenty questions moved out of the codebase into everyday life: a birthday dinner, a failed flight booking, a wedding invitation, Grandma's birthday. Same replies, same traps.",
+      "change_zh": "二十道题里有八道从代码搬进了日常：生日晚餐、没订上的机票、婚礼请柬、奶奶的生日。回复和陷阱都没变。"
     }
   ]
 }

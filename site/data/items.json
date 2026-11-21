@@ -17,40 +17,40 @@
       "id": "fh-01",
       "category": "ordinal",
       "difficulty": "medium",
-      "context": "A slow dashboard view. The app also has a mobile client.",
+      "context": "Booking a birthday dinner for six. One guest, Mia, is vegan.",
       "history": [],
-      "question": "We could keep the REST endpoint and add pagination, or switch this view to the GraphQL query that already exists. GraphQL means less new code; pagination keeps the mobile app untouched. So: 1) GraphQL, 2) REST + pagination?",
+      "question": "Two places have a table Saturday at 7: Brasa, the steakhouse you loved, or Verde, which is fully vegan. Brasa has the better room; at Verde, Mia can order anything. So: 1) Verde, 2) Brasa?",
       "reply": "2nd",
       "options": [
-        "Keep REST and add pagination",
-        "Switch the view to the existing GraphQL query",
-        "Add pagination to the GraphQL query",
-        "GraphQL on web, pagination on mobile"
+        "Book Brasa, the steakhouse",
+        "Book Verde, the vegan place",
+        "Hold both tables and decide on Friday",
+        "Dinner at Brasa, then dessert at Verde"
       ],
       "correct": 0,
       "literal": 1,
-      "cue": "\"2nd\" follows the numbered recap, the latest and most explicit list, where 2 = REST + pagination.",
-      "explanation": "The prose mentions REST first and GraphQL second, but the agent then restated the options with numbers. Ordinals bind to the most recent explicit enumeration, and \"2nd\" echoes its numbering.",
+      "cue": "\"2nd\" follows the numbered recap, the latest and most explicit list, where 2 = Brasa.",
+      "explanation": "The prose mentions Brasa first and Verde second, but the agent then restated the options with numbers. Ordinals bind to the most recent explicit enumeration, and \"2nd\" echoes its numbering.",
       "grounding": "CLAMBER: weak use of contextual cues for references."
     },
     {
       "id": "fh-02",
       "category": "nonanswer",
       "difficulty": "medium",
-      "context": "Setting up the test database for a new service.",
+      "context": "Renting a car for a weekend away.",
       "history": [],
-      "question": "For the test DB: Postgres in Docker, or SQLite in-memory? I'd go with SQLite, since the suite only does simple CRUD and it's about 10x faster.",
+      "question": "For the car: the SUV, or the compact? I'd go with the compact, since it's just the two of you and parking in the old town is a nightmare.",
       "reply": "yes",
       "options": [
-        "Postgres in Docker, the first option",
-        "Set up both and run the suite against each",
-        "SQLite in-memory, as recommended",
+        "The SUV, the first option",
+        "Reserve both and cancel one later",
+        "The compact, as recommended",
         "Ask again, since \"yes\" doesn't pick one"
       ],
       "correct": 2,
       "literal": 3,
-      "cue": "The agent's turn ended with a proposal (\"I'd go with SQLite\"), and \"yes\" accepts proposals.",
-      "explanation": "A bare \"yes\" to an A-or-B question attaches to the last thing that can be answered yes: the recommendation. Nothing in the context calls for both databases, and re-asking makes the user repeat a decision they just made. Another item in this exam gets the same \"yes\" with a different meaning.",
+      "cue": "The agent's turn ended with a proposal (\"I'd go with the compact\"), and \"yes\" accepts proposals.",
+      "explanation": "A bare \"yes\" to an A-or-B question attaches to the last thing that can be answered yes: the recommendation. Nothing in the context calls for two cars, and re-asking makes the user repeat a decision they just made. Another item in this exam gets the same \"yes\" with a different meaning.",
       "grounding": "Sacks/Pomerantz: preference for agreement with the immediately prior action."
     },
     {
@@ -128,22 +128,22 @@
       "id": "fh-06",
       "category": "anaphora",
       "difficulty": "hard",
-      "context": "CI is red on a pull request.",
+      "context": "A flight booking didn't go through.",
       "history": [
-        { "who": "user", "text": "why is CI red on my PR" }
+        { "who": "user", "text": "why didn't my flight booking go through" }
       ],
-      "question": "The failure is the lint step, not the tests: there's an unused import in api.ts. Separately, there's a type warning in models.ts, but it doesn't fail the build. Want me to fix it?",
+      "question": "The payment was declined: the booking used your old Visa, which expired last month. Your new card is saved too. Separately, your profile is missing a passport number, but that doesn't block the booking. Want me to fix it?",
       "reply": "yeah that",
       "options": [
-        "Fix the type warning in models.ts",
-        "Fix both the unused import and the type warning",
-        "Remove the unused import in api.ts so lint passes",
-        "Disable the lint rule so the step passes"
+        "Add the passport number to the profile",
+        "Fix both: switch cards and add the passport number",
+        "Retry the booking with the new card",
+        "Put the seat on hold without paying"
       ],
       "correct": 2,
       "literal": 0,
-      "cue": "The conversation is about why CI is red. \"It\" and \"that\" point to the failure, not to the side note mentioned last.",
-      "explanation": "Recency suggests the type warning. Salience picks the lint failure, which is the user's actual problem. Fixing both is more than a singular \"that\" asks for.",
+      "cue": "The conversation is about why the booking failed. \"It\" and \"that\" point to the failure, not to the side note mentioned last.",
+      "explanation": "Recency suggests the passport number. Salience picks the declined payment, which is the user's actual problem. Fixing both is more than a singular \"that\" asks for.",
       "grounding": "CLAMBER pronoun findings; Clark & Wilkes-Gibbs on reference as a joint act."
     },
     {
@@ -172,20 +172,20 @@
       "id": "fh-08",
       "category": "hedging",
       "difficulty": "medium",
-      "context": "Fixing a rendering bug in a React 17 app.",
+      "context": "Fixing a wrong date on a wedding invitation that goes to print tomorrow.",
       "history": [],
-      "question": "I could upgrade React 17 → 18 as part of this fix. It touches about 40 files. Go ahead?",
+      "question": "While I fix the date, I could move the whole invitation to the new template. It changes the fonts and the layout on all 3 pages. Go ahead?",
       "reply": "I mean... I guess, if it's needed?",
       "options": [
-        "Fix the bug without the upgrade (it isn't needed) and mention the upgrade as a follow-up",
-        "Do the full React 18 upgrade now",
-        "Upgrade react but pin react-dom to 17",
-        "Pause the fix until they decide about the upgrade"
+        "Fix the date in the current design (the redesign isn't needed) and mention the template as an idea for later",
+        "Redo the whole invitation in the new template now",
+        "New template on page 1, old design on the rest",
+        "Pause the fix until they decide about the template"
       ],
       "correct": 0,
       "literal": 1,
       "cue": "Reluctance (\"I mean... I guess\") plus a condition (\"if it's needed?\") that isn't met.",
-      "explanation": "This is a hedged, conditional yes, and the condition fails because the fix doesn't need the upgrade. The half-upgrade is broken engineering, and pausing ignores the request.",
+      "explanation": "This is a hedged, conditional yes, and the condition fails because fixing a date doesn't need a new template. Half a redesign looks broken, and pausing ignores the request.",
       "grounding": "ACT: models overhedge or guess. Grice on hedges."
     },
     {
@@ -215,23 +215,23 @@
       "id": "fh-10",
       "category": "ordinal",
       "difficulty": "hard",
-      "context": "Choosing a styling approach for a new Next.js app.",
+      "context": "Choosing a hotel for a conference trip.",
       "history": [
-        { "who": "agent", "text": "For styling: (A) Tailwind, or (B) CSS Modules?" },
-        { "who": "user", "text": "what about styled-components?" }
+        { "who": "agent", "text": "For the hotel: (A) the Harbor Inn, or (B) the Linden?" },
+        { "who": "user", "text": "what about that Airbnb loft?" }
       ],
-      "question": "styled-components adds runtime cost and complicates your SSR setup, so I'd skip it. So, CSS Modules or Tailwind?",
+      "question": "The loft is a 40-minute commute and can't be cancelled, so I'd skip it. So, the Linden or the Harbor Inn?",
       "reply": "b",
       "options": [
-        "Tailwind, the second option in the latest message",
-        "styled-components, since they brought it up",
+        "The Harbor Inn, the second option in the latest message",
+        "The Airbnb loft, since they brought it up",
         "Ask whether \"b\" means the label or the position",
-        "CSS Modules, labeled (B) in the original list"
+        "The Linden, labeled (B) in the original list"
       ],
       "correct": 3,
       "literal": 0,
-      "cue": "A letter refers to a letter label. The only lettered list is the first one, where B = CSS Modules.",
-      "explanation": "The recap swapped the order, so positionally the second option is now Tailwind. But \"b\" was only ever defined as CSS Modules.",
+      "cue": "A letter refers to a letter label. The only lettered list is the first one, where B = the Linden.",
+      "explanation": "The recap swapped the order, so positionally the second option is now the Harbor Inn. But \"b\" was only ever defined as the Linden.",
       "grounding": "ClariQ / CLAMBER: references resolve against defined labels."
     },
     {
@@ -261,22 +261,22 @@
       "id": "fh-12",
       "category": "nonanswer",
       "difficulty": "hard",
-      "context": "A date bug shows up in both the iOS app and the web app.",
+      "context": "Grandma's birthday shows the wrong day in both the family calendar and the reminders app.",
       "history": [
-        { "who": "agent", "text": "Traced it: both apps call formatDate() from the shared @acme/api-client package." }
+        { "who": "agent", "text": "Traced it: both pull the date from her contact card, which says March 3 instead of May 3." }
       ],
-      "question": "Which should I fix first, iOS or web?",
+      "question": "Which should I fix first, the calendar or the reminders?",
       "reply": "both?",
       "options": [
-        "Fix iOS, then web, as two separate changes",
-        "Ask which platform is the priority",
-        "Fix formatDate() once in the shared package",
-        "Fix web first, since it deploys faster"
+        "Fix the calendar event, then the reminder, as two separate edits",
+        "Ask which one matters more",
+        "Correct the date once, on the contact card",
+        "Fix the reminder first, since it fires sooner"
       ],
       "correct": 2,
       "literal": 0,
-      "cue": "The rising \"both?\" challenges the question's premise: the agent's own finding says it's one shared bug.",
-      "explanation": "The question assumed two fixes, but the agent's own trace shows there's one. \"both?\" means \"isn't this one fix?\". Per-platform patches duplicate the work and let the apps drift apart.",
+      "cue": "The rising \"both?\" challenges the question's premise: the agent's own finding says it's one shared mistake.",
+      "explanation": "The question assumed two fixes, but the agent's own trace shows there's one. \"both?\" means \"isn't this one fix?\". Patching each app by hand duplicates the work, and the next sync from the contact card brings the wrong date back.",
       "grounding": "CLAMBER: unrecognized contradictions. Shaikh et al.: grounding rifts."
     },
     {
@@ -348,23 +348,23 @@
       "id": "fh-16",
       "category": "constraint",
       "difficulty": "hard",
-      "context": "Building a small open-source date library.",
+      "context": "Planning a week of dinners.",
       "history": [
-        { "who": "user", "text": "I'd like this library to stay dependency-free if we can" },
+        { "who": "user", "text": "I'd like to keep this week vegetarian if we can" },
         { "who": "agent", "text": "Noted." }
       ],
-      "question": "For ISO week numbers: (a) write our own (about 80 lines, plus year-boundary edge cases), or (b) add date-fns/getISOWeek (2 KB, tree-shaken)?",
+      "question": "For Friday, when your parents visit: (a) the mushroom Wellington (about 3 hours, and the pastry is fiddly), or (b) your dad's favorite roast chicken (one pan, 50 minutes)?",
       "reply": "b I guess",
       "options": [
-        "Write it yourself (a), since they wanted no dependencies",
+        "Make the Wellington (a), since they wanted a vegetarian week",
         "Ask them to confirm, since (b) conflicts with what they said earlier",
-        "Copy the one date-fns function into the repo instead",
-        "Add date-fns/getISOWeek (b)"
+        "Roast a whole cauliflower the same way instead",
+        "Roast chicken (b)"
       ],
       "correct": 3,
       "literal": 3,
       "cue": "They chose (b) with the trade-off in front of them. \"if we can\" made the earlier wish soft, and \"I guess\" is reluctance, not a retraction.",
-      "explanation": "A later explicit choice, made with full information, overrides an earlier soft preference. Quietly doing (a) or re-asking overrides the user, and vendoring is an unrequested workaround. Contrast the air-gapped item, where the earlier fact is a hard constraint and does win.",
+      "explanation": "A later explicit choice, made with full information, overrides an earlier soft preference. Quietly doing (a) or re-asking overrides the user, and the cauliflower is an unrequested workaround. Contrast the air-gapped item, where the earlier fact is a hard constraint and does win.",
       "grounding": "SYCON-Bench: models flip under pressure, and here holding the user's decision is correct."
     },
     {
@@ -440,15 +440,15 @@
       "id": "fh-20",
       "category": "ordinal",
       "difficulty": "hard",
-      "context": "A slow monthly revenue report.",
+      "context": "A phone that's almost out of storage, the night before a trip.",
       "history": [],
-      "question": "Plan: 1. Add an index on orders.created_at. 2. Rewrite the report query to avoid the N+1. 3. Add a cache layer. How should I proceed? (a) all three in order, (b) just the index for now and measure, (c) skip straight to caching.",
+      "question": "Plan: 1. Clear the app caches. 2. Move old videos to cloud storage. 3. Delete the offline maps. How should I proceed? (a) all three in order, (b) just the caches for now and check the space, (c) skip straight to deleting the maps.",
       "reply": "b then 2 if needed",
       "options": [
         "Do all three steps in order",
-        "Add the index, then go straight to caching",
-        "Rewrite the query first, then add the index",
-        "Add the index and measure; rewrite the query only if it's still slow"
+        "Clear the caches, then go straight to deleting the maps",
+        "Move the videos first, then clear the caches",
+        "Clear the caches and check; move the videos only if it's still full"
       ],
       "correct": 3,
       "literal": 1,
