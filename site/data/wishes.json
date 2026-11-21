@@ -90,6 +90,13 @@
       "wish": "The text is overflow",
       "change": "Scores like 20/20 on the report no longer run into their bars.",
       "change_zh": "报告里像 20/20 这样的分数不再压到进度条上。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "Make the social media more interesting",
+      "change": "Shared results now come with a confession or a dare that depends on your score, and each cover carries a one-line quip.",
+      "change_zh": "分享成绩时会按分数配一句自嘲或挑战，每张封面也多了一句俏皮话。"
     }
   ]
 }

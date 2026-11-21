@@ -7,7 +7,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import { LOGO_COLORS, logoSvg } from "../site/logo.js";
-import { BAND_TEXT, bandFor } from "../site/rubric.js";
+import { BAND_TEXT, SHARE_QUIP, bandFor } from "../site/rubric.js";
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "site");
 const total = JSON.parse(fs.readFileSync(path.join(root, "data/items.json"), "utf8")).items.length;
@@ -56,7 +56,7 @@ body { width: 1200px; height: 630px; overflow: hidden; background: #fff; color: 
 .bar { display: flex; justify-content: space-between; align-items: center; padding: 0 34px; border-bottom: 4px solid var(--line); font-weight: 900; font-size: 42px; letter-spacing: -0.01em; color: var(--deep); }
 .bar span { color: var(--aqua); }
 .bar .r { font-size: 22px; font-weight: 800; letter-spacing: 0; padding: 8px 22px; background: var(--foam); border-radius: 999px; }
-.main { display: grid; grid-template-columns: 372px 1fr; align-items: center; min-height: 0; padding-bottom: 56px; }
+.main { display: grid; grid-template-columns: 372px 1fr; align-items: center; min-height: 0; padding-bottom: 40px; }
 .logo { margin-left: 40px; width: 312px; height: 312px; display: grid; place-items: center; background: #fff; border: 4px solid var(--stitch); border-radius: 56px; overflow: hidden; }
 .logo img { width: 288px; height: 288px; display: block; }
 .side { padding: 0 44px 0 28px; display: grid; align-content: center; gap: 24px; min-width: 0; }
@@ -75,6 +75,8 @@ mark { display: inline-block; background: var(--foam); color: var(--accent); bor
 .band span { white-space: nowrap; }
 .band { min-width: 0; font-weight: 900; line-height: 1.06; letter-spacing: -0.01em; padding: 0 16px 0 30px; display: flex; align-items: center; font-size: var(--bs); color: var(--deep); }
 html[lang="zh-CN"] .band, html[lang="zh-CN"] .reply .txt { font-weight: 700; }
+.quip { justify-self: start; margin-left: 8px; padding: 10px 26px; background: var(--foam); border-radius: 8px 26px 26px 26px; font-weight: 800; font-size: 30px; line-height: 1.2; color: var(--deep); }
+html[lang="zh-CN"] .quip { font-weight: 700; }
 </style></head><body><div class="frame">
 <div class="bar"><div>frontier<span>human</span></div><div class="r">frontier-human.sharkyloop.com</div></div>
 <div class="main"><div class="logo"><img src="data:image/webp;base64,${SHARKY}" alt="" /></div><div class="side">${body}</div></div>
@@ -88,7 +90,7 @@ const defaultCover = (lang) => {
 const scoreCover = (s, lang) => {
   const v = BAND_TEXT[lang][bandFor(s).id][0];
   const bs = lang === "zh" ? (v.length > 4 ? 56 : 60) : v.length > 20 ? 48 : 60;
-  return shell(`<div class="score" style="--bs:${bs}px"><div class="num">${s}<small>/${total}</small></div><div class="band"><div>${v.split(" ").map((w) => `<span>${w}</span>`).join(" ")}</div></div></div>`, lang);
+  return shell(`<div class="score" style="--bs:${bs}px"><div class="num">${s}<small>/${total}</small></div><div class="band"><div>${v.split(" ").map((w) => `<span>${w}</span>`).join(" ")}</div></div></div><div class="quip">${SHARE_QUIP[lang][bandFor(s).id]}</div>`, lang);
 };
 
 const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});

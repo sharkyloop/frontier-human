@@ -76,7 +76,7 @@ function write(rel, html) {
 }
 
 // Bump when the covers are re-rendered, so sites that cached the old image by URL fetch the new one.
-const COVER_V = 2;
+const COVER_V = 3;
 
 const home = { en: SITE, zh: `${SITE}zh/` };
 for (const lang of ["en", "zh"]) {
