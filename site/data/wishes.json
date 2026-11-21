@@ -13,6 +13,13 @@
       "wish": "move the bottom right social button to the top aside with language toggle",
       "change": "Moved the X and Discord buttons out of the phone footer and into the header, next to the language toggle.",
       "change_zh": "把手机版页脚里的 X 和 Discord 按钮移到了顶部，放在语言切换旁边。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "social media button should adapt dark mode",
+      "change": "The X and Discord buttons and the Follow Sharky card now follow the dark theme instead of staying white.",
+      "change_zh": "X 和 Discord 按钮以及“关注 Sharky”卡片现在会跟随深色主题，不再保持白色。"
     }
   ]
 }

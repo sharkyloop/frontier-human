@@ -558,13 +558,24 @@ main {
 .socials > *:active { transform: translateY(0); }
 .socials .primary, .socials .cover { background: var(--deep); color: var(--on-accent); border-color: color-mix(in srgb, var(--on-accent) 55%, transparent); font-weight: 800; }
 
-/* Sharky's corner: sharkyloop's own card, a white patch in both themes so the plush logo always sits on white. */
+/* Sharky's corner: sharkyloop's own card and chip. They follow the theme; only the plush logo keeps a white backing. */
 .sharky, .sk-chip {
+  --sk-bg: #fff;
   --sk-ink: #2f5f85;
   --sk-shark: #5b8db5;
   --sk-deep: #3f729c;
   --sk-foam: #e8f6f8;
   --sk-line: #b9dcea;
+  --sk-on: #fff;
+}
+:root[data-theme="dark"] .sharky, :root[data-theme="dark"] .sk-chip {
+  --sk-bg: var(--panel);
+  --sk-ink: var(--fg);
+  --sk-shark: var(--accent);
+  --sk-deep: var(--deep);
+  --sk-foam: var(--foam);
+  --sk-line: var(--stitch);
+  --sk-on: var(--on-accent);
 }
 .sharky {
   margin: 34px 6px 0;
@@ -572,14 +583,14 @@ main {
   align-items: center;
   gap: 8px 22px;
   padding: 10px 26px 10px 14px;
-  background: #fff;
+  background: var(--sk-bg);
   color: var(--sk-ink);
   border: 2px solid var(--sk-line);
   border-radius: 32px;
-  box-shadow: 0 0 0 6px #fff, var(--soft);
+  box-shadow: 0 0 0 6px var(--sk-bg), var(--soft);
 }
-.sharky-logo { flex: none; display: block; border-radius: 24px; }
-.sharky-logo img { display: block; width: 124px; height: 124px; animation: sharky-bob 6s ease-in-out infinite; }
+.sharky-logo { flex: none; display: block; border-radius: 24px; background: #fff; }
+.sharky-logo img { display: block; width: 124px; height: 124px; border-radius: 24px; animation: sharky-bob 6s ease-in-out infinite; }
 .sharky-logo:hover img { animation-duration: 1.6s; }
 @keyframes sharky-bob {
   0%, 100% { transform: translateY(0) rotate(0); }
@@ -605,15 +616,15 @@ main {
   white-space: nowrap;
   transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
 }
-.sharky-links a:hover, .sharky-links a:focus-visible { background: var(--sk-shark); border-color: var(--sk-deep); color: #fff; transform: translateY(-2px); }
+.sharky-links a:hover, .sharky-links a:focus-visible { background: var(--sk-shark); border-color: var(--sk-deep); color: var(--sk-on); transform: translateY(-2px); }
 .sharky-links a:active { transform: translateY(0); }
 .sharky a:focus-visible { outline: 3px solid var(--sk-line); outline-offset: 3px; }
 .sharky-links svg { width: 19px; height: 19px; fill: currentColor; flex: none; }
 
 /* The same patch, shrunk to a chip for the header. */
 .sk-cell { display: flex; align-items: center; justify-content: center; padding: 0 4px; }
-.sk-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 5px 3px 3px; background: #fff; border: 2px solid var(--sk-line); border-radius: 999px; }
-.sk-chip img { display: block; width: 34px; height: 34px; border-radius: 999px; }
+.sk-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 5px 3px 3px; background: var(--sk-bg); border: 2px solid var(--sk-line); border-radius: 999px; }
+.sk-chip img { display: block; width: 34px; height: 34px; border-radius: 999px; background: #fff; }
 .sk-chip:hover img { animation: sharky-wiggle 0.7s ease-in-out; }
 @keyframes sharky-wiggle {
   0%, 100% { transform: rotate(0); }
@@ -631,7 +642,7 @@ main {
   color: var(--sk-deep);
   transition: background-color 0.15s, color 0.15s, transform 0.15s;
 }
-.sk-chip a:hover, .sk-chip a:focus-visible { background: var(--sk-shark); color: #fff; transform: translateY(-2px); }
+.sk-chip a:hover, .sk-chip a:focus-visible { background: var(--sk-shark); color: var(--sk-on); transform: translateY(-2px); }
 .sk-chip a:focus-visible { outline: 3px solid var(--sk-line); outline-offset: 2px; }
 .sk-chip svg { width: 16px; height: 16px; fill: currentColor; }
 
