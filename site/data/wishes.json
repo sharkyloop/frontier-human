@@ -111,6 +111,13 @@
       "wish": "Add social logo",
       "change": "The share buttons now carry their logos: X, LinkedIn, Facebook, Reddit, Weibo and WeChat.",
       "change_zh": "分享按钮加上了各自的 logo：X、LinkedIn、Facebook、Reddit、微博和微信。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "The translation for or could be better",
+      "change": "In the Chinese version the trailing “or” is now 还是, the word Chinese actually uses for “or” in a question, instead of a bare 吗.",
+      "change_zh": "中文版里句尾的 “or” 从单独一个“吗”改成了“还是”，也就是中文问句里真正表示“或者”的那个词。"
     }
   ]
 }

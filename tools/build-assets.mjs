@@ -41,7 +41,7 @@ const FONTS = `
 
 const COVER = {
   en: { h1: "What did they <mark>mean?</mark>", agent: "Agent", human: "Human", q: "Should I cancel the dinner reservation? Yes or no?", a: "or" },
-  zh: { h1: "何<mark>意味？</mark>", agent: "Agent", human: "人类", q: "要我取消晚餐的预订吗？取消吗？", a: "吗" }
+  zh: { h1: "何<mark>意味？</mark>", agent: "Agent", human: "人类", q: "要我取消晚餐的预订吗？取消还是不取消？", a: "还是" }
 };
 
 // Covers follow the site: white ground, soft solid outlines, foam fills, rounded type, Sharky as the logo.
