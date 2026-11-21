@@ -558,6 +558,7 @@ main {
 }
 .socials > *:hover { background: var(--accent); border-color: var(--deep); color: var(--on-accent); transform: translateY(-2px); }
 .socials > *:active { transform: translateY(0); }
+.socials svg { flex: none; width: 17px; height: 17px; margin-right: 8px; fill: currentColor; }
 .socials .primary, .socials .cover { background: var(--deep); color: var(--on-accent); border-color: color-mix(in srgb, var(--on-accent) 55%, transparent); font-weight: 800; }
 
 /* Sharky's corner: sharkyloop's own card. It follows the theme; only the plush logo keeps a white backing. */
@@ -762,9 +763,10 @@ main {
   .share { margin-top: 24px; padding: 12px; }
   .link button { padding: 0 16px; font-size: 14px; }
   .link input { padding: 0 12px; }
-  .socials { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .socials { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .socials .primary, .socials .cover { grid-column: 1 / -1; }
-  .socials > * { padding: 0 8px; font-size: 14px; }
+  .socials > * { padding: 0 6px; font-size: 14px; }
+  .socials svg { width: 15px; height: 15px; margin-right: 6px; }
   .socials > *:hover { transform: none; }
   .sharky { margin-top: 24px; flex-direction: column; padding: 14px 14px 18px; border-radius: 28px; text-align: center; }
   .sharky-logo img { width: 148px; height: 148px; }
@@ -797,6 +799,9 @@ main {
 
 /* The header chip needs the room on phones; the pixel logo carries the brand. */
 @media (max-width: 480px) { .brand .word { display: none; } }
+
+/* Three share buttons with logos don't fit across a phone; two do. */
+@media (max-width: 440px) { .socials { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 @media (max-width: 380px) {
   .brand { font-size: 17px; }

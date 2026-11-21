@@ -104,6 +104,13 @@
       "wish": "Make the questions not that coding oriented",
       "change": "All twenty questions are now everyday errands: cakes, phone plans, a dead oven, a cabin with no internet. No code anywhere, same traps.",
       "change_zh": "二十道题全部换成了日常琐事：蛋糕、手机套餐、坏掉的烤箱、没网的小木屋。没有代码，陷阱照旧。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "Add social logo",
+      "change": "The share buttons now carry their logos: X, LinkedIn, Facebook, Reddit, Weibo and WeChat.",
+      "change_zh": "分享按钮加上了各自的 logo：X、LinkedIn、Facebook、Reddit、微博和微信。"
     }
   ]
 }
