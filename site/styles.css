@@ -329,14 +329,15 @@ main {
 .exam-nav { display: flex; justify-content: space-between; gap: 16px; margin-top: 28px; }
 
 /* ---------- Report ---------- */
-.score { display: grid; grid-template-columns: auto 1fr; overflow: hidden; }
+/* The score sits as an inset tile with the same padding as the share card below it. */
+.score { display: grid; grid-template-columns: auto 1fr; padding: 14px; }
 .score .num {
   font-weight: 900;
   font-size: clamp(80px, 15vw, 156px);
   line-height: 0.9;
   letter-spacing: -0.04em;
-  padding: 26px 40px 24px 32px;
-  border-radius: 0 56px 56px 0;
+  padding: 22px 34px 20px 28px;
+  border-radius: 16px;
   background: var(--deep);
   color: var(--on-accent);
   font-variant-numeric: tabular-nums;
@@ -576,16 +577,16 @@ main {
   --sk-on: var(--on-accent);
 }
 .sharky {
-  margin: 34px 6px 0;
+  margin: 32px 0 0;
   display: flex;
   align-items: center;
   gap: 8px 22px;
-  padding: 10px 26px 10px 14px;
+  padding: 14px 26px 14px 14px;
   background: var(--sk-bg);
   color: var(--sk-ink);
   border: 2px solid var(--sk-line);
-  border-radius: 32px;
-  box-shadow: 0 0 0 6px var(--sk-bg), var(--soft);
+  border-radius: 26px;
+  box-shadow: 0 0 0 var(--rim) var(--sk-bg), var(--soft);
 }
 .sharky-logo { flex: none; display: block; border-radius: 24px; background: #fff; }
 .sharky-logo img { display: block; width: 124px; height: 124px; border-radius: 24px; animation: sharky-bob 6s ease-in-out infinite; }
@@ -751,8 +752,9 @@ main {
   .exam-nav [data-go="next"] { flex: 1; }
 
   .score { grid-template-columns: 1fr; }
-  .score .num { border-radius: 0 0 40px 40px; font-size: clamp(72px, 24vw, 112px); padding: 18px 24px 16px; }
-  .score .verdict { font-size: clamp(24px, 7.5vw, 34px); padding: 16px 22px 20px; }
+  .score { padding: 12px; }
+  .score .num { font-size: clamp(72px, 24vw, 112px); padding: 18px 20px 16px; }
+  .score .verdict { font-size: clamp(24px, 7.5vw, 34px); padding: 14px 20px 8px; }
   .h2 { font-size: 20px; margin: 36px 0 14px; }
   .share { margin-top: 24px; padding: 12px; }
   .link button { padding: 0 16px; font-size: 14px; }
@@ -761,7 +763,7 @@ main {
   .socials .primary, .socials .cover { grid-column: 1 / -1; }
   .socials > * { padding: 0 8px; font-size: 14px; }
   .socials > *:hover { transform: none; }
-  .sharky { margin-top: 28px; flex-direction: column; padding: 6px 14px 18px; border-radius: 28px; text-align: center; }
+  .sharky { margin-top: 24px; flex-direction: column; padding: 6px 14px 18px; border-radius: 28px; text-align: center; }
   .sharky-logo img { width: 148px; height: 148px; }
   .sharky-body { flex-direction: column; justify-content: center; width: 100%; gap: 12px; }
   .sharky-title { font-size: 24px; }

@@ -48,6 +48,13 @@
       "wish": "Check every design and make it good",
       "change": "Design pass: the wish button no longer sits on the report, header buttons are full-size tap targets on phones, and the report's “vs.” heading is now “Comparison”.",
       "change_zh": "整体检查了一遍设计：许愿按钮不再压住报告内容，手机上顶部按钮恢复到易点的大小。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "The padding is ugly",
+      "change": "The score on the report is now an evenly inset tile, with the same padding as the share card under it.",
+      "change_zh": "报告里的分数改成了四边留白一致的卡片，和下面的分享卡片对齐。"
     }
   ]
 }
