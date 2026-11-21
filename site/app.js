@@ -694,13 +694,12 @@ function coverCanvas(answers, link) {
     ctx.arcTo(x, y, x + w, y, r);
     ctx.closePath();
   };
-  // A stitched patch: rounded fill with a dashed seam.
+  // A patch: rounded fill with a solid seam.
   const patch = (x, y, w, h, r, fill, seam = c.stitch) => {
     pill(x, y, w, h, r);
     ctx.fillStyle = fill;
     ctx.fill();
     ctx.save();
-    ctx.setLineDash([16, 12]);
     ctx.lineWidth = 5;
     ctx.strokeStyle = seam;
     pill(x + 2.5, y + 2.5, w - 5, h - 5, r - 2.5);
@@ -709,7 +708,6 @@ function coverCanvas(answers, link) {
   };
   const seamLine = (y) => {
     ctx.save();
-    ctx.setLineDash([16, 12]);
     ctx.lineWidth = 5;
     ctx.strokeStyle = c.line;
     ctx.beginPath();

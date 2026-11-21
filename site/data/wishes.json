@@ -1,3 +1,11 @@
 {
-  "granted": []
+  "granted": [
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "I don't like dotted line for the website",
+      "change": "Swapped every dashed outline on the site and the result card for solid lines.",
+      "change_zh": "把网站和成绩卡片上的虚线边框全部换成了实线。"
+    }
+  ]
 }
