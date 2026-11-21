@@ -900,7 +900,11 @@ body.wish-open .wish-fab, body:has(.exam-nav) .wish-fab { display: none; }
 .wish-send:hover { background: var(--accent); }
 
 @media (max-width: 720px) {
-  .wish-fab { right: 12px; bottom: calc(76px + env(safe-area-inset-bottom)); }
+  /* On phones the button is just Sharky, tucked into the corner so it stays off the content. */
+  .wish-fab { right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); padding: 4px; }
+  .wish-fab span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .wish-fab img { width: 44px; height: 44px; }
+  .foot { padding-right: 68px; }
   .wish-panel { right: 10px; left: 10px; width: auto; bottom: calc(10px + env(safe-area-inset-bottom)); max-height: calc(100dvh - 20px - env(safe-area-inset-top)); }
 }
 @media (prefers-reduced-motion: reduce) { .wish-fab:hover img { animation: none; } }

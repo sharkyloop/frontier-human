@@ -12,7 +12,7 @@ An intent-detection benchmark for humans. An AI agent asks a clarifying question
 - Share to X, LinkedIn, Facebook, Reddit, Weibo, WeChat (QR code) or the system share sheet. Shared links point at a static page per score and language (`/s/<score>/?r=…`, `/s/<score>/zh/?r=…`) whose Open Graph and Twitter tags show that score's cover, and the page opens the full report.
 - "Follow Sharky" card on the report (sharkyloop's plush style: mascot, soft border, pill links to X and Discord), plus a small Sharky chip (mascot and round X and Discord buttons) in the header next to the language toggle, on phones too.
 - "↓ Cover" saves a 1080×1350 PNG result card (score, verdict, QR of the report link) in the current language and theme, for places where links don't preview.
-- Wish box: a floating "Wish for a change" chat with Sharky on every page except during the exam. There is no backend: a wish opens X as a reply to Sharky's wish post, tagged `[frontier-human]`, and the sharkyloop agent reads it there and changes the site if it can. Granted wishes are listed from `site/data/wishes.json`.
+- Wish box: a floating "Wish for a change" chat with Sharky on every page except during the exam. On phones the button is a small round Sharky in the corner. There is no backend: a wish opens X as a reply to Sharky's wish post, tagged `[frontier-human]`, and the sharkyloop agent reads it there and changes the site if it can. Granted wishes are listed from `site/data/wishes.json`.
 - Pixel-art logo (a human and a question mark on a 16×16 grid) in the sharkyloop palette, used for the header, favicons and every cover.
 - Plush sharkyloop design (rounded type, shark blues, foam fills, dashed "stitched" outlines, the shark mascot on the home screen) with light and dark themes (follows `prefers-color-scheme`; the toggle choice is saved), tuned for phones down to 360 px wide.
 - Google Analytics (GA4). The measurement ID is set once, in the first script in `site/index.html`.
@@ -31,6 +31,8 @@ An intent-detection benchmark for humans. An AI agent asks a clarifying question
 | `tools/build-assets.mjs` | Renders the logo SVGs, favicons and covers (needs Playwright; run after changing the logo, bands or cover copy) |
 | `tools/build-pages.mjs` | Writes `site/zh/` and the per-score share pages from `site/index.html` (no dependencies; also runs in the Pages workflow) |
 | `site/` | Static site (plain HTML/CSS/JS, no build step) |
+
+When you change `styles.css`, `app.js` or `wish.js`, bump the `?v=` number on their tags in `site/index.html` so visitors with a cached copy get the new files together with the new HTML.
 | `.github/workflows/pages.yml` | Validates both item files, builds the share pages, checks every cover exists and deploys `site/` to GitHub Pages on push to `main` |
 
 ## Run locally
