@@ -68,7 +68,7 @@ mark { background: var(--accent); color: #fff; padding: 0 8px; }
 .band { font-weight: 900; text-transform: uppercase; line-height: 0.98; letter-spacing: -0.03em; padding: 22px 26px; background: var(--panel); display: flex; align-items: center; font-size: var(--bs); }
 .score .band { border-left: 8px solid var(--fg); }
 </style></head><body>
-<div class="bar"><div>FRONTIER<span>HUMAN</span></div><div class="r">edward40.com/frontier-human</div></div>
+<div class="bar"><div>FRONTIER<span>HUMAN</span></div><div class="r">frontier-human.sharkyloop.com</div></div>
 <div class="main"><div class="logo">${logoSvg(mark(L))}</div><div class="side">${body}</div></div>
 </body></html>`;
 

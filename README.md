@@ -2,7 +2,7 @@
 
 An intent-detection benchmark for humans. An AI agent asks a clarifying question ("Should I delete the old migration? Yes or no?"), the human answers tersely ("or", "yes", "b I guess", "a, wait no"), and you pick what they actually meant, the way a strong agent would.
 
-**Take it:** https://edward40.com/frontier-human/
+**Take it:** https://frontier-human.sharkyloop.com/
 
 - 20 items across six categories: trailing "or", non-answers, ordinal reference, pointers & repair, implicit constraint, sarcasm & hedging.
 - 15 hard and 5 medium. Each wrong option is a documented agent failure mode, and many are the answer a strong model would give.
@@ -10,6 +10,7 @@ An intent-detection benchmark for humans. An AI agent asks a clarifying question
 - The report shows your score, verdict, a rubric of all five bands with yours highlighted, comparisons with strong-agent and literal-reader baselines, per-category criteria and an explanation for every item.
 - Magic link: finishing puts `?r=<version>.<code>` in the URL. The code packs your answers (2 bits each, plus a checksum) in base64url, so the link rebuilds the same report on any device with no backend. Links from an older version of the exam, or damaged links, show a notice instead.
 - Share to X, LinkedIn, Facebook, Reddit, Weibo, WeChat (QR code) or the system share sheet. Shared links point at a static page per score and language (`/s/<score>/?r=…`, `/s/<score>/zh/?r=…`) whose Open Graph and Twitter tags show that score's cover, and the page opens the full report.
+- "Follow Sharky" card on the report (sharkyloop's plush style: mascot, stitched border, pill links to X and Discord), plus a small Sharky chip (mascot and round X and Discord buttons) in the header and the mobile footer.
 - "↓ Cover" saves a 1080×1350 PNG result card (score, verdict, QR of the report link) in the current language and theme, for places where links don't preview.
 - Pixel-art logo (a human and a question mark on a 16×16 grid) used for the header, favicons and every cover.
 - Brutalist blue design with light and dark themes (follows `prefers-color-scheme`; the toggle choice is saved), tuned for phones down to 360 px wide.

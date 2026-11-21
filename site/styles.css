@@ -88,8 +88,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   text-transform: uppercase;
   font-size: 13px;
   letter-spacing: 0.06em;
+  white-space: nowrap;
 }
 .nav a:hover { background: var(--fg); color: var(--bg); }
+@media (max-width: 900px) { .nav a { padding: 0 10px; } .nav .sk-cell { padding: 0 8px; } }
+@media (max-width: 820px) { .nav .sk-chip img { display: none; } .nav .sk-chip { padding-left: 5px; } }
 .theme {
   width: 58px;
   border-left: var(--b) solid var(--line);
@@ -427,6 +430,87 @@ main {
 .socials > *:hover { background: var(--fg); color: var(--bg); }
 .socials > *:active { background: var(--accent); color: var(--on-accent); }
 .socials .primary, .socials .cover { background: var(--accent); color: var(--on-accent); font-family: var(--display); text-transform: uppercase; }
+/* Sharky's corner: borrows sharkyloop.com's plush look (rounded type, stitched dashes, foam pills) on a white patch in both themes.
+   The radii need !important to beat the global square-corner reset. */
+.sharky, .sk-chip {
+  --sk-ink: #2f5f85;
+  --sk-shark: #5b8db5;
+  --sk-deep: #3f729c;
+  --sk-foam: #e8f6f8;
+  --sk-line: #b9dcea;
+}
+.sharky {
+  margin: 30px 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px 22px;
+  padding: 10px 26px 10px 14px;
+  background: #fff;
+  color: var(--sk-ink);
+  border: 2px dashed var(--sk-line);
+  border-radius: 32px !important;
+  box-shadow: 0 0 0 6px #fff, 0 12px 26px rgb(63 114 156 / 0.22);
+  font-family: ui-rounded, "SF Pro Rounded", "Nunito", "Varela Round", system-ui, -apple-system, "Segoe UI", var(--cjk);
+}
+.sharky-logo { flex: none; display: block; border-radius: 24px !important; }
+.sharky-logo img { display: block; width: 124px; height: 124px; animation: sharky-bob 6s ease-in-out infinite; }
+.sharky-logo:hover img { animation-duration: 1.6s; }
+@keyframes sharky-bob {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-5px) rotate(-2deg); }
+}
+.sharky-body { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 20px; }
+.sharky-title { font-weight: 800; font-size: 26px; letter-spacing: -0.01em; line-height: 1.15; }
+.sharky-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.sharky-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 0 20px;
+  border: 2px dashed var(--sk-line);
+  border-radius: 999px !important;
+  background: var(--sk-foam);
+  color: var(--sk-deep);
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s, transform 0.15s;
+}
+.sharky-links a:hover, .sharky-links a:focus-visible { background: var(--sk-shark); border-color: var(--sk-deep); color: #fff; transform: translateY(-2px); }
+.sharky-links a:active { transform: translateY(0); }
+.sharky a:focus-visible { outline: 3px solid var(--sk-line); outline-offset: 3px; }
+.sharky-links svg { width: 19px; height: 19px; fill: currentColor; flex: none; }
+
+/* The same patch, shrunk to a chip for the header and the mobile footer. */
+.sk-cell { display: flex; align-items: center; justify-content: center; padding: 0 14px; border-left: var(--b) solid var(--line); }
+.sk-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 5px 3px 3px; background: #fff; border: 2px dashed var(--sk-line); border-radius: 999px !important; }
+.sk-chip img { display: block; width: 34px; height: 34px; border-radius: 999px !important; }
+.sk-chip:hover img { animation: sharky-wiggle 0.7s ease-in-out; }
+@keyframes sharky-wiggle {
+  0%, 100% { transform: rotate(0); }
+  30% { transform: rotate(-12deg); }
+  65% { transform: rotate(9deg); }
+}
+.nav .sk-chip a, .foot .sk-chip a {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 999px !important;
+  background: var(--sk-foam);
+  color: var(--sk-deep);
+  transition: background-color 0.15s, color 0.15s, transform 0.15s;
+}
+.nav .sk-chip a:hover, .foot .sk-chip a:hover, .sk-chip a:focus-visible { background: var(--sk-shark); color: #fff; transform: translateY(-2px); }
+.sk-chip a:focus-visible { outline: 3px solid var(--sk-line); outline-offset: 2px; }
+.sk-chip svg { width: 16px; height: 16px; fill: currentColor; }
 .qr {
   border: var(--b) solid var(--line);
   background: var(--panel);
@@ -488,6 +572,10 @@ main {
   .foot { display: flex; border-top: var(--b) solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
   .foot a { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 48px; font-weight: 800; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; }
   .foot a + a { border-left: var(--b) solid var(--line); }
+  .foot .sk-cell { flex: 1.5; padding: 5px 8px; }
+  .foot .sk-chip { gap: 6px; }
+  .foot .sk-chip a { width: 38px; height: 38px; }
+  .foot .sk-chip svg { width: 18px; height: 18px; }
 
   main { padding: 18px max(14px, env(safe-area-inset-right)) 32px max(14px, env(safe-area-inset-left)); }
   .intro h1 { font-size: clamp(40px, 13vw, 72px); margin: 4px 0 24px; }
@@ -539,6 +627,12 @@ main {
   .socials { grid-auto-flow: row; grid-template-columns: repeat(3, 1fr); }
   .socials .primary, .socials .cover { grid-column: 1 / -1; }
   .socials > * { min-height: 52px; font-size: 13px; }
+  .sharky { margin-top: 24px; flex-direction: column; padding: 6px 14px 18px; border-radius: 28px !important; text-align: center; }
+  .sharky-logo img { width: 148px; height: 148px; }
+  .sharky-body { flex-direction: column; justify-content: center; width: 100%; gap: 12px; }
+  .sharky-title { font-size: 24px; }
+  .sharky-links { width: 100%; }
+  .sharky-links a { flex: 1; min-height: 50px; padding: 0 12px; }
   .row { grid-template-columns: 104px 1fr 56px; }
   .row > * { padding: 0 10px; }
   .row .name { font-size: 12px; }
@@ -579,4 +673,5 @@ main {
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
+  .sharky-logo img, .sk-chip:hover img { animation: none; }
 }

@@ -30,6 +30,6 @@ export const SHARE_TEXT = {
 
 export const bandFor = (score) => BANDS.find((b) => score >= b.min);
 
-export const SITE = "https://edward40.com/frontier-human/";
+export const SITE = "https://frontier-human.sharkyloop.com/";
 
 export const sharePath = (score, lang) => `s/${score}/${lang === "zh" ? "zh/" : ""}`;
