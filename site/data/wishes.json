@@ -62,6 +62,13 @@
       "wish": "The social media cover is not that good",
       "change": "Redrew all 44 share covers: Sharky as the logo, solid outlines, an evenly padded score tile, and nothing important under X's title label.",
       "change_zh": "重画了全部 44 张分享封面：Sharky 作 logo，实线边框，分数卡片留白一致，重要内容避开 X 的标题标签。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "Change the top left logo more align to frontier human topic",
+      "change": "New pixel logo: Sharky the agent with a question mark over its head, wondering what the human meant.",
+      "change_zh": "新的像素 logo：头顶问号的 Sharky，正在琢磨人类到底是什么意思。"
     }
   ]
 }

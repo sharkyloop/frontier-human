@@ -13,7 +13,7 @@ An intent-detection benchmark for humans. An AI agent asks a clarifying question
 - "Follow Sharky" card on the report (sharkyloop's plush style: mascot, soft border, pill links to X and Discord), plus round X and Discord buttons in the header next to the language toggle, on phones too. They share the toggle's colours and height.
 - "↓ Cover" saves a 1080×1350 PNG result card (score, verdict, QR of the report link) in the current language and theme, for places where links don't preview.
 - Wish box: a floating "Wish for a change" chat with Sharky on every page except during the exam. The button is a small round Sharky in the corner; its label unfolds on hover or keyboard focus, and stays open on screens 1500 px and wider. There is no backend: a wish opens X as a reply to Sharky's wish post, tagged `[frontier-human]`, and the sharkyloop agent reads it there and changes the site if it can. Granted wishes are listed from `site/data/wishes.json`.
-- Pixel-art logo (a human and a question mark on a 16×16 grid) in the sharkyloop palette, used for the header, favicons and every cover.
+- Pixel-art logo on a 16×16 grid: Sharky, the agent, with a question mark over its head. It is used for the header, the favicons and the result card; the covers show the sharkyloop mascot.
 - Plush sharkyloop design (rounded type, shark blues, foam fills, dashed "stitched" outlines, the shark mascot on the home screen) with light and dark themes (follows `prefers-color-scheme`; the toggle choice is saved), tuned for phones down to 360 px wide.
 - Google Analytics (GA4). The measurement ID is set once, in the first script in `site/index.html`.
 

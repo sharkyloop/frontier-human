@@ -1,21 +1,22 @@
-// 16×16 pixel mark: H = figure (ink), Q = question mark (accent).
+// 16×16 pixel mark: H = Sharky, the agent (ink; the gap in its head is the eye), Q = its belly and the
+// question it is asking about what the human meant (accent).
 export const LOGO = [
   "..........QQQQ..",
   ".........QQQQQQ.",
   ".........QQ..QQ.",
   "............QQQ.",
-  "..HHHH.....QQQ..",
-  "..HHHH.....QQ...",
-  "..HHHH..........",
-  "..HHHH.....QQ...",
-  "...........QQ...",
-  ".HHHHHH.........",
-  "HHHHHHHH........",
-  "H.HHHH.H........",
-  "H.HHHH.H........",
-  ".HHHHHH.........",
-  ".HH..HH.........",
-  ".HH..HH........."
+  "...........QQQ..",
+  "......H....QQ...",
+  ".....HH.........",
+  "H...HHH....QQ...",
+  "HH.HHHHHHH.QQ...",
+  "HHHHHHHHHHHH....",
+  ".HHHHHHHH.HHH...",
+  "HHHHHHHHHHHHHH..",
+  "HH.HHHHHHHHHH...",
+  "H...QQQQQQQ.....",
+  ".....HHQQ.......",
+  "......H........."
 ];
 
 export const LOGO_COLORS = {
