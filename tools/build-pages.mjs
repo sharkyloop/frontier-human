@@ -13,7 +13,7 @@ const COPY = {
   en: {
     title: "FrontierHuman · What did they mean?",
     desc: "20 terse replies to an AI agent's clarifying questions. Read them the way a strong agent would.",
-    alt: "FrontierHuman: Agent asks “Should I delete the old migration? Yes or no?” Human replies “or”.",
+    alt: "FrontierHuman: Agent asks “Should I cancel the dinner reservation? Yes or no?” Human replies “or”.",
     scoreAlt: (s, v) => `FrontierHuman result: ${s}/${total}, ${v}.`,
     locale: "en_US",
     alternate: "zh_CN"
@@ -21,7 +21,7 @@ const COPY = {
   zh: {
     title: "FrontierHuman · 何意味？",
     desc: "Agent 问了个澄清问题，人只回了一两个字。20 道题，看你能不能像强 Agent 一样读懂。",
-    alt: "FrontierHuman：Agent 问“要我删掉旧的 migration 吗？删吗？”，人类回“吗”。",
+    alt: "FrontierHuman：Agent 问“要我取消晚餐的预订吗？取消吗？”，人类回“吗”。",
     scoreAlt: (s, v) => `FrontierHuman 成绩：${s}/${total}，${v}。`,
     locale: "zh_CN",
     alternate: "en_US"
@@ -76,7 +76,7 @@ function write(rel, html) {
 }
 
 // Bump when the covers are re-rendered, so sites that cached the old image by URL fetch the new one.
-const COVER_V = 3;
+const COVER_V = 4;
 
 const home = { en: SITE, zh: `${SITE}zh/` };
 for (const lang of ["en", "zh"]) {

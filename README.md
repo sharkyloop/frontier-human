@@ -1,10 +1,10 @@
 # FrontierHuman
 
-An intent-detection benchmark for humans. An AI agent asks a clarifying question ("Should I delete the old migration? Yes or no?"), the human answers tersely ("or", "yes", "b I guess", "a, wait no"), and you pick what they actually meant, the way a strong agent would.
+An intent-detection benchmark for humans. An AI agent asks a clarifying question ("Should I cancel the dinner reservation? Yes or no?"), the human answers tersely ("or", "yes", "b I guess", "a, wait no"), and you pick what they actually meant, the way a strong agent would.
 
 **Take it:** https://frontier-human.sharkyloop.com/
 
-- 20 items across six categories: trailing "or", non-answers, ordinal reference, pointers & repair, implicit constraint, sarcasm & hedging. Twelve are set in software work and eight in everyday errands (dinner bookings, travel, family calendars).
+- 20 items across six categories: trailing "or", non-answers, ordinal reference, pointers & repair, implicit constraint, sarcasm & hedging. All are set in everyday errands an assistant might run (dinner bookings, travel, deliveries, family calendars), not in code.
 - 15 hard and 5 medium. Each wrong option is a documented agent failure mode, and many are the answer a strong model would give.
 - English and Simplified Chinese (EN / 中 toggle; defaults to the browser language). The Chinese items are adapted, not word-for-word, so each keeps its ambiguity (trailing "or" becomes a bare 吗).
 - The report shows your score, verdict, a rubric of all five bands with yours highlighted, comparisons with strong-agent and literal-reader baselines, per-category criteria and an explanation for every item.

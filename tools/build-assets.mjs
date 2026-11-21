@@ -40,8 +40,8 @@ const FONTS = `
   --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, "Liberation Mono", "DejaVu Sans Mono", var(--cjk), monospace;`;
 
 const COVER = {
-  en: { h1: "What did they <mark>mean?</mark>", agent: "Agent", human: "Human", q: "Should I delete the old migration? Yes or no?", a: "or" },
-  zh: { h1: "何<mark>意味？</mark>", agent: "Agent", human: "人类", q: "要我删掉旧的 migration 吗？删吗？", a: "吗" }
+  en: { h1: "What did they <mark>mean?</mark>", agent: "Agent", human: "Human", q: "Should I cancel the dinner reservation? Yes or no?", a: "or" },
+  zh: { h1: "何<mark>意味？</mark>", agent: "Agent", human: "人类", q: "要我取消晚餐的预订吗？取消吗？", a: "吗" }
 };
 
 // Covers follow the site: white ground, soft solid outlines, foam fills, rounded type, Sharky as the logo.

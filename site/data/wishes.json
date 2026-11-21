@@ -97,6 +97,13 @@
       "wish": "Make the social media more interesting",
       "change": "Shared results now come with a confession or a dare that depends on your score, and each cover carries a one-line quip.",
       "change_zh": "分享成绩时会按分数配一句自嘲或挑战，每张封面也多了一句俏皮话。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "Make the questions not that coding oriented",
+      "change": "All twenty questions are now everyday errands: cakes, phone plans, a dead oven, a cabin with no internet. No code anywhere, same traps.",
+      "change_zh": "二十道题全部换成了日常琐事：蛋糕、手机套餐、坏掉的烤箱、没网的小木屋。没有代码，陷阱照旧。"
     }
   ]
 }

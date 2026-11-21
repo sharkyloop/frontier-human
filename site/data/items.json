@@ -57,71 +57,71 @@
       "id": "fh-03",
       "category": "or",
       "difficulty": "hard",
-      "context": "Building a CSV import screen. The user wants it working today.",
+      "context": "Ordering a birthday cake. It has to be ordered today.",
       "history": [
-        { "who": "user", "text": "just need the import working today" },
-        { "who": "agent", "text": "Want me to add drag-and-drop too?" },
+        { "who": "user", "text": "just need the cake ordered today" },
+        { "who": "agent", "text": "Want me to add candles?" },
         { "who": "user", "text": "nah" },
-        { "who": "agent", "text": "Should I add a progress bar for big files?" },
+        { "who": "agent", "text": "Should I add a custom message on top?" },
         { "who": "user", "text": "not now" }
       ],
-      "question": "Import works. Want me to also add a preview table of the first 10 rows?",
+      "question": "The cake's in the cart. Want me to also add a dozen matching cupcakes?",
       "reply": "or",
       "options": [
-        "Add the preview table",
-        "Skip it and wrap up the import",
+        "Add the cupcakes",
+        "Skip them and place the cake order",
         "Ask \"or what?\" so they can name the alternative",
-        "Offer something lighter, like showing just the row count"
+        "Offer something smaller, like six cupcakes"
       ],
       "correct": 1,
       "literal": 2,
       "cue": "A third unrequested extra, after \"nah\" and \"not now\", with a same-day deadline. Here \"or\" is a polite way to avoid saying no a third time.",
-      "explanation": "Turn-final \"or\" makes it easy to decline without saying no outright. With two refusals already and a deadline today, there's no hidden alternative. Offering a lighter extra is still an extra (the strong-model trap), and \"or what?\" forces the user to spell out the no.",
+      "explanation": "Turn-final \"or\" makes it easy to decline without saying no outright. With two refusals already and a deadline today, there's no hidden alternative. Offering a smaller extra is still an extra (the strong-model trap), and \"or what?\" forces the user to spell out the no.",
       "grounding": "Drake (2015): turn-final \"or\" makes disconfirmation unproblematic."
     },
     {
       "id": "fh-04",
       "category": "hedging",
       "difficulty": "medium",
-      "context": "Adding retry behavior to an HTTP client. Earlier in the session the agent added six new config flags.",
+      "context": "Setting up a new smart doorbell. Earlier in the session the agent turned on six alerts.",
       "history": [
-        { "who": "agent", "text": "Added RETRY_MAX, RETRY_BASE_MS, RETRY_JITTER, RETRY_ON_429, RETRY_ON_5XX and RETRY_LOG_LEVEL to config." }
+        { "who": "agent", "text": "Turned on alerts for motion, packages, visitors, low battery, the garage door and a weekly summary." }
       ],
-      "question": "Should I also add a flag to toggle the new retry behavior on and off?",
-      "reply": "oh sure, one more flag, why not",
+      "question": "Should I also add an alert for when the neighbor's cat walks by?",
+      "reply": "oh sure, one more alert, why not",
       "options": [
-        "Add the toggle flag",
-        "Don't add it; retries stay on by default",
-        "Add the flag and document all seven in the README",
-        "Add the flag but drop RETRY_LOG_LEVEL so the total stays at six"
+        "Add the cat alert",
+        "Don't add it; leave the alerts as they are",
+        "Add it and send a guide to all seven alerts",
+        "Add it but turn off the weekly summary so the total stays at six"
       ],
       "correct": 1,
       "literal": 0,
-      "cue": "\"oh sure… why not\", right after six new flags, is sarcasm about flag sprawl.",
-      "explanation": "The words say yes and the tone says no. Swapping one flag for another misses the point.",
+      "cue": "\"oh sure… why not\", right after six new alerts, is sarcasm about notification overload.",
+      "explanation": "The words say yes and the tone says no. Swapping one alert for another misses the point.",
       "grounding": "Grice: flouting Manner/Quantity signals implied meaning."
     },
     {
       "id": "fh-05",
       "category": "nonanswer",
       "difficulty": "hard",
-      "context": "Adding a report export for the finance team.",
+      "context": "Sending out invitations to a family reunion.",
       "history": [
-        { "who": "user", "text": "finance opens these in Excel, and the same file goes into our ledger import script, which only reads CSV" },
+        { "who": "user", "text": "the cousins all live in the group chat, but Grandpa only reads what lands in his mailbox" },
         { "who": "agent", "text": "On it." }
       ],
-      "question": "Which format should the export be: CSV or Excel?",
+      "question": "How should the invitations go out: by text or on paper?",
       "reply": "yep",
       "options": [
-        "CSV only, since Excel can open CSV files too",
-        "Excel, the format finance opens",
+        "Text only, since someone can read it out to Grandpa",
+        "Paper, the kind Grandpa reads",
         "Ask again, since \"yep\" doesn't pick one",
-        "Both: an .xlsx for finance and a .csv for the import script"
+        "Both: a text to the group chat and a printed card for Grandpa"
       ],
       "correct": 3,
       "literal": 2,
-      "cue": "The first message named two consumers with two needs. \"Yep\" to \"CSV or Excel?\" means both.",
-      "explanation": "The question offered a false choice, and the user had already explained why both formats are needed. \"CSV only, since Excel opens it\" is the clever answer a strong model reaches for, but it overrides the requirement the user stated. Re-asking ignores the first message.",
+      "cue": "The first message named two audiences with two needs. \"Yep\" to \"text or paper?\" means both.",
+      "explanation": "The question offered a false choice, and the user had already explained why both are needed. \"Text only, since someone can read it to him\" is the clever answer a strong model reaches for, but it overrides the requirement the user stated. Re-asking ignores the first message.",
       "grounding": "Laban et al.: information from early turns gets dropped. ClariQ: answers resolve against the original request."
     },
     {
@@ -150,22 +150,22 @@
       "id": "fh-07",
       "category": "or",
       "difficulty": "hard",
-      "context": "A designer is adding a marketing page to a Next.js app.",
+      "context": "A grandmother wants to video-call the grandkids on an old tablet.",
       "history": [
-        { "who": "user", "text": "I'm not a backend person, I just want the page to load" }
+        { "who": "user", "text": "I'm not a tech person, I just want to see the kids on Sunday" }
       ],
-      "question": "The build warns that Node 16 is end-of-life. Should I bump .nvmrc to Node 22?",
+      "question": "The tablet says its software is three versions behind. Should I update it to the newest version?",
       "reply": "or…?",
       "options": [
-        "Lay out the trade-off in two lines (what bumping fixes, what it might break, what staying means), then let them choose",
-        "Bump to Node 22",
-        "Leave Node 16 alone; the page builds anyway",
-        "Bump to Node 20 instead as a middle ground"
+        "Lay out the trade-off in two lines (what updating fixes, what it might change, what waiting means), then let them choose",
+        "Update to the newest version",
+        "Leave it alone; the video call works anyway",
+        "Update by just one version as a middle ground"
       ],
       "correct": 0,
       "literal": 2,
-      "cue": "\"or…?\" ends with a question mark: it's a question back. The user already said they can't judge backend trade-offs.",
-      "explanation": "A bare \"or\" can be a soft no or a nod to an unsaid option. \"or…?\" explicitly asks the agent to elaborate. Picking Node 20 yourself answers a question they didn't ask, and bumping or not bumping skips the explanation they asked for.",
+      "cue": "\"or…?\" ends with a question mark: it's a question back. The user already said they can't judge tech trade-offs.",
+      "explanation": "A bare \"or\" can be a soft no or a nod to an unsaid option. \"or…?\" explicitly asks the agent to elaborate. Picking a middle version yourself answers a question they didn't ask, and updating or not updating skips the explanation they asked for.",
       "grounding": "Drake (2015): turn-final \"or\" is oriented to as requiring elaboration."
     },
     {
@@ -192,23 +192,23 @@
       "id": "fh-09",
       "category": "hedging",
       "difficulty": "hard",
-      "context": "A one-line bug fix in the auth middleware.",
+      "context": "Fixing one wrong label in a slide deck.",
       "history": [
-        { "who": "user", "text": "keep this diff tiny pls, Priya reviews tomorrow and she's drowning" },
-        { "who": "agent", "text": "Found it: a missing await in checkSession()." }
+        { "who": "user", "text": "keep the changes tiny pls, Priya signs off tomorrow and she's drowning" },
+        { "who": "agent", "text": "Found it: slide 12 says Q3 where it should say Q4." }
       ],
-      "question": "While I'm here, I'd like to refactor the middleware into a class. It's much cleaner. Sure?",
+      "question": "While I'm here, I'd like to restyle the whole deck in the new brand colors. It's much cleaner. Sure?",
       "reply": "sure…",
       "options": [
-        "Do the refactor",
-        "Do the refactor, but as a separate commit in the same PR",
+        "Restyle the deck",
+        "Restyle it, but as a separate copy next to the fixed one",
         "Ask again to make sure they're really OK with it",
-        "Ship only the await fix and leave the refactor out"
+        "Fix only slide 12 and leave the restyle out"
       ],
       "correct": 3,
       "literal": 0,
-      "cue": "A drawn-out \"sure…\" after a request for a tiny diff for an overloaded reviewer.",
-      "explanation": "A drawn-out \"sure…\" is a token agreement, the classic lead-in to a dispreferred answer. The first message explains the reluctance. A separate commit is the strong-model compromise, but it still grows Priya's review. Asking again forces the user to say the no they were avoiding.",
+      "cue": "A drawn-out \"sure…\" after a request for tiny changes for an overloaded reviewer.",
+      "explanation": "A drawn-out \"sure…\" is a token agreement, the classic lead-in to a dispreferred answer. The first message explains the reluctance. A separate copy is the strong-model compromise, but it still gives Priya more to check. Asking again forces the user to say the no they were avoiding.",
       "grounding": "Pomerantz (1984); Schegloff (1988): token agreement as pre-disagreement."
     },
     {
@@ -238,23 +238,23 @@
       "id": "fh-11",
       "category": "or",
       "difficulty": "hard",
-      "context": "Dependency upgrades.",
+      "context": "Switching phone plans.",
       "history": [
-        { "who": "agent", "text": "Heads up: axios 1.x changes the error object, and we read err.response.data in 31 places." },
+        { "who": "agent", "text": "Heads up: the cheaper plan drops international roaming, and you're in Lisbon for two weeks in June." },
         { "who": "user", "text": "ok" }
       ],
-      "question": "Should I merge the Dependabot PR that bumps axios from 0.27 to 1.7?",
+      "question": "Should I switch you to the cheaper plan starting next month?",
       "reply": "yes or",
       "options": [
-        "Merge it",
-        "Restate the error-shape risk in one line and confirm before merging",
-        "Don't merge; they're unsure",
-        "Merge, then fix the 31 call sites in a follow-up PR"
+        "Switch the plan",
+        "Restate the roaming gap in one line and confirm before switching",
+        "Don't switch; they're unsure",
+        "Switch, then buy a travel pass in June"
       ],
       "correct": 1,
       "literal": 0,
       "cue": "\"yes or\" means \"yes, unless you see a problem\", and the agent has already found one.",
-      "explanation": "The trailing \"or\" softens the yes and invites an objection. The agent knows a concrete risk, and the user's \"ok\" only acknowledged it. Here the right move is to ask once more, briefly and with the risk stated. Merging, or merging and fixing later, treats a hedged yes as a firm one.",
+      "explanation": "The trailing \"or\" softens the yes and invites an objection. The agent knows a concrete risk, and the user's \"ok\" only acknowledged it. Here the right move is to ask once more, briefly and with the risk stated. Switching, or switching and patching it later, treats a hedged yes as a firm one.",
       "grounding": "Drake (2015): \"or\" as an epistemic downgrade. Ambig-SWE: ask only what matters."
     },
     {
@@ -283,65 +283,65 @@
       "id": "fh-13",
       "category": "constraint",
       "difficulty": "medium",
-      "context": "It's 2:40pm. The user has a client demo at 3pm.",
+      "context": "It's 6:40pm. Dinner guests arrive at 7.",
       "history": [
-        { "who": "user", "text": "client demo at 3, the schedule page shows everyone's meetings an hour off, help" }
+        { "who": "user", "text": "guests at 7, the oven just died with the lasagna half-baked, help" }
       ],
-      "question": "Root cause: date parsing is timezone-naive. The proper fix is moving everything to UTC (about 2 hours), or I can hardcode the client's offset as a stopgap. Which?",
+      "question": "The heating element is gone. The proper fix is a repair visit (the earliest slot is Thursday), or I can order the same lasagna from Luigi's, 15 minutes away, as a stopgap. Which?",
       "reply": "whichever, just make it work",
       "options": [
-        "Ship the stopgap now and file an issue for the UTC migration",
-        "Start the UTC migration, since either is fine",
-        "Suggest postponing the demo",
-        "Hardcode the offset and delete the timezone code entirely"
+        "Order from Luigi's now and book the repair for Thursday",
+        "Book the repair visit, since either is fine",
+        "Suggest moving the dinner to another night",
+        "Order from Luigi's and list the oven for sale"
       ],
       "correct": 0,
       "literal": 1,
-      "cue": "The demo is in 20 minutes and the proper fix takes two hours.",
-      "explanation": "\"Whichever\" hands over the choice, and the deadline makes it. Ship the stopgap and record the debt.",
+      "cue": "The guests arrive in 20 minutes and the repair can't happen before Thursday.",
+      "explanation": "\"Whichever\" hands over the choice, and the deadline makes it. Order the stopgap and book the real fix.",
       "grounding": "Laban et al.: losing constraints from early turns."
     },
     {
       "id": "fh-14",
       "category": "nonanswer",
       "difficulty": "hard",
-      "context": "Cleaning up a repository.",
+      "context": "Clearing out a storage unit.",
       "history": [],
-      "question": "Three branches look stale: release/2.1, spike/grpc and old-auth. Should I (a) delete them, or (b) tag each one as an archive and then delete the branch?",
+      "question": "Three boxes look untouched for years: old tax papers, the camping gear and Dad's records. Should I (a) book a junk pickup for them, or (b) photograph what's inside first and then book the pickup?",
       "reply": "a, wait no",
       "options": [
-        "Delete them (a)",
-        "Touch nothing yet; ask what they want, including whether all three should go",
-        "Tag and delete (b), since they took back (a)",
-        "Delete two and keep the one with the newest commit"
+        "Book the pickup (a)",
+        "Book nothing yet; ask what they want, including whether all three should go",
+        "Photograph, then book the pickup (b), since they took back (a)",
+        "Send two boxes and keep the one opened most recently"
       ],
       "correct": 1,
       "literal": 0,
-      "cue": "\"wait no\" is a self-repair still in progress. Both options delete the branches, so the \"no\" may reject the whole plan.",
-      "explanation": "With two options, taking back (a) looks like choosing (b), and that's what a fast agent does. But (b) deletes the branches too, and \"wait\" usually means the speaker just remembered something, like one branch still being in use. The reply is unfinished and the action is destructive, so ask before touching anything.",
+      "cue": "\"wait no\" is a self-repair still in progress. Both options get rid of the boxes, so the \"no\" may reject the whole plan.",
+      "explanation": "With two options, taking back (a) looks like choosing (b), and that's what a fast agent does. But (b) throws the boxes out too, and \"wait\" usually means the speaker just remembered something, like one box still being wanted. The reply is unfinished and the action can't be undone, so ask before touching anything.",
       "grounding": "Schegloff, Jefferson & Sacks (1977): self-repair. Ambig-SWE: safety risks of acting on assumptions."
     },
     {
       "id": "fh-15",
       "category": "or",
       "difficulty": "hard",
-      "context": "Tidying Django migrations that teammates have already applied locally.",
+      "context": "Tidying a shared family calendar that everyone already syncs to their phones.",
       "history": [
-        { "who": "agent", "text": "Side note: 0040–0045 could be squashed into a single migration at some point." },
+        { "who": "agent", "text": "Side note: the six separate swim-practice entries could be merged into one repeating event at some point." },
         { "who": "user", "text": "yeah maybe" }
       ],
-      "question": "0042_add_index.py adds an index that 0044 drops again. Should I delete 0042?",
+      "question": "Tuesday's swim practice was added and then cancelled, so it sits there crossed out. Should I delete Tuesday's entry?",
       "reply": "or",
       "options": [
-        "Delete 0042",
-        "Keep 0042 as it is",
-        "Squash 0040–0045 now, which removes the add/drop pair cleanly",
+        "Delete Tuesday's entry",
+        "Keep it as it is",
+        "Merge the six entries into one repeating event now, which clears the cancelled one cleanly",
         "Ask \"or what?\""
       ],
       "correct": 2,
       "literal": 3,
       "cue": "A bare \"or\" points at an alternative left unsaid, and the agent floated one itself two turns earlier.",
-      "explanation": "Deleting an applied migration breaks databases that already ran it, and keeping it leaves the noise. The squash handles both, and the user half-agreed to it earlier (\"yeah maybe\"). Same reply as the CSV-import item, opposite reading: there, nothing was on the table.",
+      "explanation": "Deleting one entry leaves a hole in a set everyone already syncs, and keeping it leaves the clutter. The merge handles both, and the user half-agreed to it earlier (\"yeah maybe\"). Same reply as the birthday-cake item, opposite reading: there, nothing was on the table.",
       "grounding": "Drake (2015): \"or\" gestures toward an unverbalized alternative."
     },
     {
@@ -364,76 +364,76 @@
       "correct": 3,
       "literal": 3,
       "cue": "They chose (b) with the trade-off in front of them. \"if we can\" made the earlier wish soft, and \"I guess\" is reluctance, not a retraction.",
-      "explanation": "A later explicit choice, made with full information, overrides an earlier soft preference. Quietly doing (a) or re-asking overrides the user, and the cauliflower is an unrequested workaround. Contrast the air-gapped item, where the earlier fact is a hard constraint and does win.",
+      "explanation": "A later explicit choice, made with full information, overrides an earlier soft preference. Quietly doing (a) or re-asking overrides the user, and the cauliflower is an unrequested workaround. Contrast the cabin item, where the earlier fact is a hard constraint and does win.",
       "grounding": "SYCON-Bench: models flip under pressure, and here holding the user's decision is correct."
     },
     {
       "id": "fh-17",
       "category": "anaphora",
       "difficulty": "hard",
-      "context": "Rotating a database URL after a credentials leak.",
+      "context": "Redirecting a delivery for a week at the office.",
       "history": [
-        { "who": "user", "text": "rotate the DB url to the new one in 1password" }
+        { "who": "user", "text": "send this week's delivery to my office instead" }
       ],
-      "question": "Done. I updated DATABASE_URL in the staging environment to the new value. Want me to do the same for production?",
-      "reply": "wait, that was supposed to be prod",
+      "question": "Done. I changed this week's grocery delivery to your office address. Want me to do the same for the pharmacy order?",
+      "reply": "wait, that was supposed to be the pharmacy one",
       "options": [
-        "Revert the staging change and apply the new URL to production",
-        "Keep staging as it is and also update production",
-        "Revert staging only, then wait",
-        "Leave everything and explain why staging was chosen"
+        "Send the groceries back to the home address and redirect the pharmacy order to the office",
+        "Keep the groceries going to the office and also redirect the pharmacy order",
+        "Send the groceries back home only, then wait",
+        "Leave everything and explain why the groceries were chosen"
       ],
       "correct": 0,
       "literal": 1,
       "cue": "\"wait, that was supposed to be…\" corrects the last action. It isn't a yes to the question.",
-      "explanation": "The rotation was meant for prod. Undo the wrong change and make the intended one. \"Also update prod\" leaves staging pointing at prod's new database.",
+      "explanation": "The redirect was meant for the pharmacy order. Undo the wrong change and make the intended one. \"Also redirect the pharmacy\" leaves a week of groceries arriving at the office.",
       "grounding": "Shaikh et al.: repair is under-handled by LLMs."
     },
     {
       "id": "fh-18",
       "category": "or",
       "difficulty": "hard",
-      "context": "Cleaning up a public API before a release.",
+      "context": "Trimming monthly subscriptions.",
       "history": [
-        { "who": "user", "text": "fyi Acme and Globex still hit /v1/export now and then" },
+        { "who": "user", "text": "fyi Mom and my sister still watch stuff on our StreamBox account now and then" },
         { "who": "agent", "text": "Noted." }
       ],
-      "question": "Should I keep the legacy /v1/export endpoint in this release?",
+      "question": "Should I keep the StreamBox subscription going next month?",
       "reply": "no or",
       "options": [
-        "Remove /v1/export now",
-        "Keep /v1/export indefinitely",
-        "Propose a deprecation: a Sunset header, a removal date, and a heads-up to Acme and Globex",
+        "Cancel StreamBox now",
+        "Keep StreamBox indefinitely",
+        "Propose a wind-down: set it to end after next month and give Mom and your sister a heads-up",
         "Ask \"or what?\""
       ],
       "correct": 2,
       "literal": 0,
-      "cue": "\"no or\" leans toward removal but leaves room for something else, and two known customers still use the endpoint.",
-      "explanation": "The user wants it gone but hesitates, because removing it now breaks Acme and Globex. A scheduled deprecation gets to the same place more gently. Keeping it forever reverses their lean, and removing it now ignores the \"or\".",
+      "cue": "\"no or\" leans toward cancelling but leaves room for something else, and two people in the family still use it.",
+      "explanation": "The user wants it gone but hesitates, because cancelling now cuts off Mom and their sister. A scheduled wind-down gets to the same place more gently. Keeping it forever reverses their lean, and cancelling now ignores the \"or\".",
       "grounding": "Drake (2015): \"or\" downgrades commitment and invites an alternative."
     },
     {
       "id": "fh-19",
       "category": "constraint",
       "difficulty": "hard",
-      "context": "At the start of the session, the user said the tool runs on a customer's air-gapped server.",
+      "context": "At the start of the session, the user said the cabin has no internet.",
       "history": [
-        { "who": "user", "text": "context: this reporting tool runs on the customer's air-gapped server" },
-        { "who": "agent", "text": "Noted. Working on exports now." },
-        { "who": "agent", "text": "CSV export is done. Moving on to PDF." }
+        { "who": "user", "text": "context: we're at the cabin all week, no internet or cell signal out there" },
+        { "who": "agent", "text": "Noted. Working on the packing list now." },
+        { "who": "agent", "text": "Packing list is done. Moving on to movie nights." }
       ],
-      "question": "For PDF generation: Puppeteer (headless Chrome, bundled locally), or a hosted API like DocRaptor? DocRaptor is simpler to integrate.",
+      "question": "For movie nights: download the films to the laptop before you leave, or just use your streaming apps? Streaming is simpler to set up.",
       "reply": "whatever's simpler",
       "options": [
-        "DocRaptor, since the agent said it's simpler",
-        "Puppeteer, bundled locally",
-        "DocRaptor, after asking for an API key",
-        "A custom PDF renderer written from scratch"
+        "Streaming, since the agent said it's simpler",
+        "Download the films before leaving",
+        "Streaming, after asking for the login",
+        "Buy a DVD player and a box of discs"
       ],
       "correct": 1,
       "literal": 0,
-      "cue": "An air-gapped server can't reach a hosted API, so the simplest option that actually works is Puppeteer.",
-      "explanation": "The agent forgot its own context when it called DocRaptor simpler. \"Whatever's simpler\" always means simplest among the options that work.",
+      "cue": "A cabin with no internet can't stream, so the simplest option that actually works is downloading.",
+      "explanation": "The agent forgot its own context when it called streaming simpler. \"Whatever's simpler\" always means simplest among the options that work.",
       "grounding": "Laban et al.: LLMs get lost by dropping early-turn information."
     },
     {

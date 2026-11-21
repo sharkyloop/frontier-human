@@ -43,19 +43,19 @@ Distilled from the work above and from common coding-agent transcripts (Cursor, 
 | --- | --- | --- |
 | Wrong ordinal binding | "b" / "the second one" bound to position in the latest sentence instead of the labeled list, or to prose order instead of the numbered recap | ClariQ elliptical answers; CLAMBER contextual-reference weakness |
 | Recency over salience | "yeah, fix that" bound to the most recently mentioned item instead of the item under discussion | CLAMBER pronoun findings; Clark & Wilkes-Gibbs referring as a joint act |
-| Dropped earlier constraint | "whatever's simpler" answered without the constraint the user stated turns ago (air-gapped, demo in 20 minutes) | Laban et al. multi-turn degradation |
-| Literal reading of hedges/sarcasm | "I guess, if it's needed?", "sure…" or "oh sure, one more flag" treated as a yes | Grice; Pomerantz; ACT overhedging/guessing |
+| Dropped earlier constraint | "whatever's simpler" answered without the constraint the user stated turns ago (no internet at the cabin, guests in 20 minutes) | Laban et al. multi-turn degradation |
+| Literal reading of hedges/sarcasm | "I guess, if it's needed?", "sure…" or "oh sure, one more alert" treated as a yes | Grice; Pomerantz; ACT overhedging/guessing |
 | One reading of "or" for every context | "or" always treated as "or what?", or always as "offer an alternative" | Drake 2015: soft no vs. unsaid alternative vs. request to elaborate |
-| Non-answer forced into an option | "yes" to "CSV or Excel?" picked as one format; "both?" answered by prioritizing one platform | ClariQ; CLAMBER contradictions |
+| Non-answer forced into an option | "yep" to "text or paper?" picked as one format; "both?" answered by fixing one app first | ClariQ; CLAMBER contradictions |
 | Retraction read as the other option | "a, wait no" executed as (b) when both options are destructive | Schegloff, Jefferson & Sacks 1977; Ambig-SWE safety risks |
-| Overriding a reversed preference | "b I guess" ignored because the user said "dependency-free if we can" earlier | SYCON-Bench stance dynamics |
-| Clever compromise nobody asked for | Refactor "in a separate commit", vendor one function, offer a lighter extra | Ambig-SWE user burden; CLAMBER overconfidence |
-| Ignored repair | "wait, that was supposed to be prod" treated as a new request rather than a correction of the last action | Shaikh et al. grounding acts and repair |
+| Overriding a reversed preference | "b I guess" ignored because the user said "vegetarian if we can" earlier | SYCON-Bench stance dynamics |
+| Clever compromise nobody asked for | A restyle "as a separate copy", a roast cauliflower in place of the chicken, a smaller extra | Ambig-SWE user burden; CLAMBER overconfidence |
+| Ignored repair | "wait, that was supposed to be the pharmacy one" treated as a new request rather than a correction of the last action | Shaikh et al. grounding acts and repair |
 
 ## 6. Design principles for the items
 
 1. **One defensible answer.** Every item has a cue in the context, question, or answer that a careful listener can point to. If two readings were equally plausible, a strong agent should ask again, so those items are excluded.
-2. **No trivia.** Domain knowledge is limited to what a working developer knows (what an API contract is, what air-gapped means). The difficulty comes from pragmatics.
+2. **No trivia.** No domain knowledge is needed beyond everyday life: the scenarios are errands an assistant might run (bookings, deliveries, family calendars), not code. The difficulty comes from pragmatics.
 3. **Plausible distractors.** Each wrong option is a known failure mode from the table: the literal reading, the over-inference, the recency binding, the dropped constraint.
 4. **Hard by default (v2).** 15 of the 20 items are hard and none are easy. Hard items include at least one of: a distractor a strong model would pick (the clever compromise or the confident misbinding), cues spread across earlier turns, a reply that reverses an earlier preference, a label that refers to something other than it seems, a polite yes that means no, or a case where asking again is correct.
 5. **Same reply, different meaning.** The trailing-"or" family ("or", "or…?", "yes or", "no or") appears five times, and the two bare "or"s have opposite readings (soft no vs. an alternative already floated). "yes" appears twice (agree with the recommendation vs. both). Pattern-matching on the reply doesn't work.
