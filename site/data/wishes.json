@@ -76,6 +76,20 @@
       "wish": "Make questions more interesting",
       "change": "Eight of the twenty questions moved out of the codebase into everyday life: a birthday dinner, a failed flight booking, a wedding invitation, Grandma's birthday. Same replies, same traps.",
       "change_zh": "二十道题里有八道从代码搬进了日常：生日晚餐、没订上的机票、婚礼请柬、奶奶的生日。回复和陷阱都没变。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "Make the human answers more natural",
+      "change": "A few replies now read the way people type them: “2nd one”, “yep”, “yeah that one”. The bare “or” replies stay, since they are the whole point.",
+      "change_zh": "几句英文回复改得更像随手打的字：“2nd one”“yep”“yeah that one”。只回一个“or”的那几题没动，那正是考点。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "The text is overflow",
+      "change": "Scores like 20/20 on the report no longer run into their bars.",
+      "change_zh": "报告里像 20/20 这样的分数不再压到进度条上。"
     }
   ]
 }

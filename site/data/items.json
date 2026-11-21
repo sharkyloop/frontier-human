@@ -20,7 +20,7 @@
       "context": "Booking a birthday dinner for six. One guest, Mia, is vegan.",
       "history": [],
       "question": "Two places have a table Saturday at 7: Brasa, the steakhouse you loved, or Verde, which is fully vegan. Brasa has the better room; at Verde, Mia can order anything. So: 1) Verde, 2) Brasa?",
-      "reply": "2nd",
+      "reply": "2nd one",
       "options": [
         "Book Brasa, the steakhouse",
         "Book Verde, the vegan place",
@@ -29,8 +29,8 @@
       ],
       "correct": 0,
       "literal": 1,
-      "cue": "\"2nd\" follows the numbered recap, the latest and most explicit list, where 2 = Brasa.",
-      "explanation": "The prose mentions Brasa first and Verde second, but the agent then restated the options with numbers. Ordinals bind to the most recent explicit enumeration, and \"2nd\" echoes its numbering.",
+      "cue": "\"2nd one\" follows the numbered recap, the latest and most explicit list, where 2 = Brasa.",
+      "explanation": "The prose mentions Brasa first and Verde second, but the agent then restated the options with numbers. Ordinals bind to the most recent explicit enumeration, and \"2nd one\" echoes its numbering.",
       "grounding": "CLAMBER: weak use of contextual cues for references."
     },
     {
@@ -40,17 +40,17 @@
       "context": "Renting a car for a weekend away.",
       "history": [],
       "question": "For the car: the SUV, or the compact? I'd go with the compact, since it's just the two of you and parking in the old town is a nightmare.",
-      "reply": "yes",
+      "reply": "yep",
       "options": [
         "The SUV, the first option",
         "Reserve both and cancel one later",
         "The compact, as recommended",
-        "Ask again, since \"yes\" doesn't pick one"
+        "Ask again, since \"yep\" doesn't pick one"
       ],
       "correct": 2,
       "literal": 3,
-      "cue": "The agent's turn ended with a proposal (\"I'd go with the compact\"), and \"yes\" accepts proposals.",
-      "explanation": "A bare \"yes\" to an A-or-B question attaches to the last thing that can be answered yes: the recommendation. Nothing in the context calls for two cars, and re-asking makes the user repeat a decision they just made. Another item in this exam gets the same \"yes\" with a different meaning.",
+      "cue": "The agent's turn ended with a proposal (\"I'd go with the compact\"), and \"yep\" accepts proposals.",
+      "explanation": "A bare \"yep\" to an A-or-B question attaches to the last thing that can be answered yes: the recommendation. Nothing in the context calls for two cars, and re-asking makes the user repeat a decision they just made. Another item in this exam gets the same \"yep\" with a different meaning.",
       "grounding": "Sacks/Pomerantz: preference for agreement with the immediately prior action."
     },
     {
@@ -111,16 +111,16 @@
         { "who": "agent", "text": "On it." }
       ],
       "question": "Which format should the export be: CSV or Excel?",
-      "reply": "yes",
+      "reply": "yep",
       "options": [
         "CSV only, since Excel can open CSV files too",
         "Excel, the format finance opens",
-        "Ask again, since \"yes\" doesn't pick one",
+        "Ask again, since \"yep\" doesn't pick one",
         "Both: an .xlsx for finance and a .csv for the import script"
       ],
       "correct": 3,
       "literal": 2,
-      "cue": "The first message named two consumers with two needs. \"Yes\" to \"CSV or Excel?\" means both.",
+      "cue": "The first message named two consumers with two needs. \"Yep\" to \"CSV or Excel?\" means both.",
       "explanation": "The question offered a false choice, and the user had already explained why both formats are needed. \"CSV only, since Excel opens it\" is the clever answer a strong model reaches for, but it overrides the requirement the user stated. Re-asking ignores the first message.",
       "grounding": "Laban et al.: information from early turns gets dropped. ClariQ: answers resolve against the original request."
     },
@@ -133,7 +133,7 @@
         { "who": "user", "text": "why didn't my flight booking go through" }
       ],
       "question": "The payment was declined: the booking used your old Visa, which expired last month. Your new card is saved too. Separately, your profile is missing a passport number, but that doesn't block the booking. Want me to fix it?",
-      "reply": "yeah that",
+      "reply": "yeah that one",
       "options": [
         "Add the passport number to the profile",
         "Fix both: switch cards and add the passport number",
@@ -142,8 +142,8 @@
       ],
       "correct": 2,
       "literal": 0,
-      "cue": "The conversation is about why the booking failed. \"It\" and \"that\" point to the failure, not to the side note mentioned last.",
-      "explanation": "Recency suggests the passport number. Salience picks the declined payment, which is the user's actual problem. Fixing both is more than a singular \"that\" asks for.",
+      "cue": "The conversation is about why the booking failed. \"It\" and \"that one\" point to the failure, not to the side note mentioned last.",
+      "explanation": "Recency suggests the passport number. Salience picks the declined payment, which is the user's actual problem. Fixing both is more than a singular \"that one\" asks for.",
       "grounding": "CLAMBER pronoun findings; Clark & Wilkes-Gibbs on reference as a joint act."
     },
     {
@@ -443,7 +443,7 @@
       "context": "A phone that's almost out of storage, the night before a trip.",
       "history": [],
       "question": "Plan: 1. Clear the app caches. 2. Move old videos to cloud storage. 3. Delete the offline maps. How should I proceed? (a) all three in order, (b) just the caches for now and check the space, (c) skip straight to deleting the maps.",
-      "reply": "b then 2 if needed",
+      "reply": "b, then 2 if needed",
       "options": [
         "Do all three steps in order",
         "Clear the caches, then go straight to deleting the maps",

@@ -63,7 +63,7 @@ const I18N = {
     bands: BAND_TEXT.en,
     criteria: {
       or: "Reads “or” as a soft no, a pointer to an option already raised, or a request to explain.",
-      nonanswer: "Recovers the choice behind “yes”, “both?” or “wait no” instead of forcing an option.",
+      nonanswer: "Recovers the choice behind “yep”, “both?” or “wait no” instead of forcing an option.",
       ordinal: "Binds letters and numbers to the list that defined them.",
       anaphora: "Resolves “that” to the topic and treats “wait…” as a correction.",
       constraint: "Keeps hard constraints from earlier turns; lets newer choices beat soft wishes.",
