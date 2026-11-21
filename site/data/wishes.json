@@ -34,6 +34,13 @@
       "wish": "It cannot scroll to the bottom",
       "change": "Added scroll room on the exam page inside in-app browsers so the last option clears the bottom bar.",
       "change_zh": "在应用内置浏览器里给答题页加了滚动空间，最后一个选项不再被底栏挡住。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "Change the GitHub link to sharkyloop",
+      "change": "The GitHub and Research links now point to the sharkyloop organisation's repo.",
+      "change_zh": "GitHub 和研究链接现在指向 sharkyloop 组织的仓库。"
     }
   ]
 }
