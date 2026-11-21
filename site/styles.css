@@ -610,7 +610,7 @@ main {
 .sharky a:focus-visible { outline: 3px solid var(--sk-line); outline-offset: 3px; }
 .sharky-links svg { width: 19px; height: 19px; fill: currentColor; flex: none; }
 
-/* The same patch, shrunk to a chip for the header and the mobile footer. */
+/* The same patch, shrunk to a chip for the header. */
 .sk-cell { display: flex; align-items: center; justify-content: center; padding: 0 4px; }
 .sk-chip { display: inline-flex; align-items: center; gap: 5px; padding: 3px 5px 3px 3px; background: #fff; border: 2px solid var(--sk-line); border-radius: 999px; }
 .sk-chip img { display: block; width: 34px; height: 34px; border-radius: 999px; }
@@ -684,6 +684,8 @@ main {
   .brand { font-size: 19px; gap: 8px; }
   .logo-mark { width: 40px; height: 40px; padding: 2px; border-radius: 12px; }
   .nav .wide { display: none; }
+  .nav .sk-cell { padding: 0; }
+  .nav .sk-chip { padding: 3px; gap: 4px; }
   .lang button { min-width: 38px; min-height: 32px; }
   .theme { width: 40px; height: 40px; }
   .foot {
@@ -696,10 +698,6 @@ main {
   }
   .foot > a { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none; color: var(--deep); }
   .foot > a:active { background: var(--foam); }
-  .foot .sk-cell { flex: none; padding: 0; }
-  .foot .sk-chip { gap: 6px; }
-  .foot .sk-chip a { width: 38px; height: 38px; }
-  .foot .sk-chip svg { width: 18px; height: 18px; }
 
   main { padding: 22px max(16px, env(safe-area-inset-right)) 36px max(16px, env(safe-area-inset-left)); }
   .intro { gap: 20px; }
@@ -784,6 +782,9 @@ main {
   .notice .btn { width: 100%; }
   .toast { bottom: calc(24px + env(safe-area-inset-bottom)); }
 }
+
+/* The header chip needs the room on phones; the pixel logo carries the brand. */
+@media (max-width: 480px) { .brand .word { display: none; } }
 
 @media (max-width: 380px) {
   .brand { font-size: 17px; }
