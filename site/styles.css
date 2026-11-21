@@ -763,7 +763,7 @@ main {
   .socials .primary, .socials .cover { grid-column: 1 / -1; }
   .socials > * { padding: 0 8px; font-size: 14px; }
   .socials > *:hover { transform: none; }
-  .sharky { margin-top: 24px; flex-direction: column; padding: 6px 14px 18px; border-radius: 28px; text-align: center; }
+  .sharky { margin-top: 24px; flex-direction: column; padding: 14px 14px 18px; border-radius: 28px; text-align: center; }
   .sharky-logo img { width: 148px; height: 148px; }
   .sharky-body { flex-direction: column; justify-content: center; width: 100%; gap: 12px; }
   .sharky-title { font-size: 24px; }
