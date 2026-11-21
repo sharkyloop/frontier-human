@@ -24,7 +24,7 @@ const I18N = {
     prev: "Previous question",
     progress: "Progress",
     choices: "Interpretations",
-    vs: "vs.",
+    vs: "Comparison",
     you: "You",
     strongAgent: "Strong agent",
     literalReader: "Literal reader",
