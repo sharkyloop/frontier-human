@@ -28,7 +28,8 @@ An intent-detection benchmark for humans. An AI agent asks a clarifying question
 | `site/wish.js`, `site/data/wishes.json` | The wish box and the list of granted wishes it shows |
 | `site/logo.js`, `site/rubric.js` | Logo pixels and verdict bands, shared by the app and the build scripts |
 | `site/covers/` | Social covers: `default-{en,zh}.png` and `{en,zh}/<score>.png` (1200×630) |
-| `tools/build-assets.mjs` | Renders the logo SVGs, favicons and covers (needs Playwright; run after changing the logo, bands or cover copy) |
+| `tools/build-assets.mjs` | Renders the logo SVGs, favicons and covers (needs Playwright, or `CHROME_PATH` pointing at an installed Chrome; run after changing the logo, bands or cover copy, then bump `COVER_V` in `tools/build-pages.mjs`) |
+| `tools/fonts/` | Nunito (OFL), embedded in the covers so they render the same on every machine |
 | `tools/build-pages.mjs` | Writes `site/zh/` and the per-score share pages from `site/index.html` (no dependencies; also runs in the Pages workflow) |
 | `site/` | Static site (plain HTML/CSS/JS, no build step) |
 

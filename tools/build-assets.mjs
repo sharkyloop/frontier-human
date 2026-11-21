@@ -1,6 +1,7 @@
 // Renders the logo files, favicons and social covers into site/.
 // Needs Playwright: `npm i -D playwright && npx playwright install chromium`,
-// then `node tools/build-assets.mjs [logo-512-output.png]`.
+// then `node tools/build-assets.mjs [logo-512-output.png]`. Set CHROME_PATH to use an installed Chrome instead.
+// Covers embed tools/fonts/Nunito.ttf (OFL) so they render the same on every machine.
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -15,6 +16,10 @@ const out = (rel) => {
   fs.mkdirSync(path.dirname(f), { recursive: true });
   return f;
 };
+
+const b64 = (f) => fs.readFileSync(f).toString("base64");
+const NUNITO = b64(path.join(path.dirname(fileURLToPath(import.meta.url)), "fonts/Nunito.ttf"));
+const SHARKY = b64(path.join(root, "sharky.webp"));
 
 const L = LOGO_COLORS.light;
 const D = LOGO_COLORS.dark;
@@ -39,36 +44,40 @@ const COVER = {
   zh: { h1: "何<mark>意味？</mark>", agent: "Agent", human: "人类", q: "要我删掉旧的 migration 吗？删吗？", a: "吗" }
 };
 
-// Covers follow the site's plush sharkyloop look: white ground, stitched dashes, foam patches, rounded type.
+// Covers follow the site: white ground, soft solid outlines, foam fills, rounded type, Sharky as the logo.
+// X lays the page title over the bottom-left corner of the image, so the content sits above a clear bottom band.
 const shell = (body, lang) => `<!doctype html><html lang="${lang === "zh" ? "zh-CN" : "en"}"><head><meta charset="utf-8"><style>
-:root {${FONTS} --round: ui-rounded, "SF Pro Rounded", "Nunito", "Varela Round", system-ui, -apple-system, "Segoe UI", var(--cjk);
+@font-face { font-family: "Nunito"; font-weight: 200 1000; src: url(data:font/ttf;base64,${NUNITO}) format("truetype"); }
+:root {${FONTS} --round: "Nunito", ui-rounded, "SF Pro Rounded", system-ui, -apple-system, "Segoe UI", var(--cjk);
   --fg:#2f5f85; --deep:${L.ink}; --accent:#5b8db5; --aqua:${L.accent}; --foam:${L.bg}; --stitch:#b9dcea; --line:#cfe6ee; }
 * { box-sizing: border-box; margin: 0; }
 body { width: 1200px; height: 630px; overflow: hidden; background: #fff; color: var(--fg); font-family: var(--round); padding: 20px; }
-.frame { height: 100%; border: 4px dashed var(--stitch); border-radius: 44px; display: grid; grid-template-rows: 92px 1fr; overflow: hidden; }
-.bar { display: flex; justify-content: space-between; align-items: center; padding: 0 34px; border-bottom: 4px dashed var(--line); font-weight: 800; font-size: 40px; letter-spacing: -0.01em; color: var(--deep); }
+.frame { height: 100%; border: 4px solid var(--stitch); border-radius: 44px; display: grid; grid-template-rows: 92px 1fr; overflow: hidden; }
+.bar { display: flex; justify-content: space-between; align-items: center; padding: 0 34px; border-bottom: 4px solid var(--line); font-weight: 900; font-size: 42px; letter-spacing: -0.01em; color: var(--deep); }
 .bar span { color: var(--aqua); }
-.bar .r { font-size: 22px; font-weight: 700; letter-spacing: 0; padding: 8px 22px; background: var(--foam); border-radius: 999px; }
-.main { display: grid; grid-template-columns: 404px 1fr; align-items: center; min-height: 0; }
-.logo { margin-left: 44px; width: 340px; height: 340px; display: grid; place-items: center; background: var(--foam); border: 4px dashed var(--stitch); border-radius: 60px; }
-.logo svg { width: 256px; height: 256px; }
-.side { padding: 20px 48px 20px 16px; display: grid; align-content: center; gap: 26px; min-width: 0; }
-h1 { font-size: 92px; font-weight: 900; line-height: 1; letter-spacing: -0.03em; color: var(--deep); }
-html[lang="zh-CN"] h1 { font-size: 116px; letter-spacing: 0; }
-mark { display: inline-block; background: var(--foam); color: var(--accent); border: 5px dashed var(--stitch); border-radius: 0.28em; padding: 0 0.16em 0.04em; transform: rotate(-2deg); }
+.bar .r { font-size: 22px; font-weight: 800; letter-spacing: 0; padding: 8px 22px; background: var(--foam); border-radius: 999px; }
+.main { display: grid; grid-template-columns: 372px 1fr; align-items: center; min-height: 0; padding-bottom: 56px; }
+.logo { margin-left: 40px; width: 312px; height: 312px; display: grid; place-items: center; background: #fff; border: 4px solid var(--stitch); border-radius: 56px; overflow: hidden; }
+.logo img { width: 288px; height: 288px; display: block; }
+.side { padding: 0 44px 0 28px; display: grid; align-content: center; gap: 24px; min-width: 0; }
+h1 { font-size: 96px; font-weight: 900; line-height: 1; letter-spacing: -0.02em; color: var(--deep); }
+html[lang="zh-CN"] h1 { font-size: 116px; letter-spacing: 0; font-weight: 700; }
+mark { display: inline-block; background: var(--foam); color: var(--accent); border: 5px solid var(--stitch); border-radius: 0.28em; padding: 0 0.16em 0.04em; transform: rotate(-2deg); }
 .chat { display: grid; gap: 12px; }
 .turn { display: grid; grid-template-columns: 96px 1fr; gap: 12px; align-items: start; }
 .who { justify-self: end; margin-top: 10px; padding: 4px 14px; border-radius: 999px; background: var(--foam); color: var(--deep); font-weight: 800; font-size: 17px; white-space: nowrap; }
-.txt { justify-self: start; padding: 12px 20px; background: var(--foam); border-radius: 8px 26px 26px 26px; font-weight: 600; font-size: 24px; line-height: 1.25; }
+.txt { justify-self: start; padding: 12px 20px; background: var(--foam); border-radius: 8px 26px 26px 26px; font-weight: 700; font-size: 24px; line-height: 1.25; }
 .reply .who { background: var(--deep); color: #fff; }
 .reply .txt { background: var(--deep); color: #fff; font-weight: 900; font-size: 64px; line-height: 1; padding: 6px 28px 14px; border-radius: 8px 30px 30px 30px; }
-.score { display: grid; grid-template-columns: auto 1fr; border: 4px dashed var(--stitch); border-radius: 52px; overflow: hidden; box-shadow: 0 0 0 8px #fff, 0 16px 36px rgb(63 114 156 / 0.18); }
-.num { background: var(--deep); color: #fff; font-weight: 900; font-size: 190px; line-height: 0.88; letter-spacing: -0.04em; padding: 28px 40px 24px 32px; border-radius: 0 68px 68px 0; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.num small { font-size: 62px; letter-spacing: -0.01em; }
-.band { font-weight: 800; line-height: 1.06; letter-spacing: -0.02em; padding: 22px 28px; display: flex; align-items: center; font-size: var(--bs); color: var(--deep); }
+.score { display: grid; grid-template-columns: auto 1fr; padding: 16px; border: 4px solid var(--stitch); border-radius: 48px; box-shadow: 0 0 0 8px #fff, 0 16px 36px rgb(63 114 156 / 0.18); }
+.num { background: var(--deep); color: #fff; font-weight: 900; font-size: 176px; line-height: 0.9; letter-spacing: -0.03em; padding: 24px 36px 22px 30px; border-radius: 32px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.num small { font-size: 60px; letter-spacing: -0.01em; }
+.band span { white-space: nowrap; }
+.band { min-width: 0; font-weight: 900; line-height: 1.06; letter-spacing: -0.01em; padding: 0 16px 0 30px; display: flex; align-items: center; font-size: var(--bs); color: var(--deep); }
+html[lang="zh-CN"] .band, html[lang="zh-CN"] .reply .txt { font-weight: 700; }
 </style></head><body><div class="frame">
 <div class="bar"><div>frontier<span>human</span></div><div class="r">frontier-human.sharkyloop.com</div></div>
-<div class="main"><div class="logo">${logoSvg(mark(L))}</div><div class="side">${body}</div></div>
+<div class="main"><div class="logo"><img src="data:image/webp;base64,${SHARKY}" alt="" /></div><div class="side">${body}</div></div>
 </div></body></html>`;
 
 const defaultCover = (lang) => {
@@ -79,13 +88,21 @@ const defaultCover = (lang) => {
 const scoreCover = (s, lang) => {
   const v = BAND_TEXT[lang][bandFor(s).id][0];
   const bs = lang === "zh" ? (v.length > 4 ? 56 : 60) : v.length > 20 ? 48 : 60;
-  return shell(`<div class="score" style="--bs:${bs}px"><div class="num">${s}<small>/${total}</small></div><div class="band">${v}</div></div>`, lang);
+  return shell(`<div class="score" style="--bs:${bs}px"><div class="num">${s}<small>/${total}</small></div><div class="band"><div>${v.split(" ").map((w) => `<span>${w}</span>`).join(" ")}</div></div></div>`, lang);
 };
 
-const browser = await chromium.launch();
+const browser = await chromium.launch(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {});
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
 async function shot(html, file) {
   await page.setContent(html, { waitUntil: "load" });
+  await page.evaluate(() => document.fonts.ready);
+  // Words never break at a hyphen, so shrink the verdict until its longest word fits the tile.
+  await page.evaluate(() => {
+    const band = document.querySelector(".band"), score = document.querySelector(".score");
+    if (!band) return;
+    let size = parseFloat(getComputedStyle(score).getPropertyValue("--bs"));
+    while (size > 30 && band.scrollWidth > band.clientWidth) score.style.setProperty("--bs", --size + "px");
+  });
   await page.screenshot({ path: out(file) });
 }
 let n = 0;

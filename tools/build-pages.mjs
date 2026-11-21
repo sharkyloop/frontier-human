@@ -75,10 +75,13 @@ function write(rel, html) {
   fs.writeFileSync(file, html);
 }
 
+// Bump when the covers are re-rendered, so sites that cached the old image by URL fetch the new one.
+const COVER_V = 2;
+
 const home = { en: SITE, zh: `${SITE}zh/` };
 for (const lang of ["en", "zh"]) {
   const c = COPY[lang];
-  const m = { lang, url: home[lang], title: c.title, desc: c.desc, image: `${SITE}covers/default-${lang}.png`, alt: c.alt, alternates: home };
+  const m = { lang, url: home[lang], title: c.title, desc: c.desc, image: `${SITE}covers/default-${lang}.png?v=${COVER_V}`, alt: c.alt, alternates: home };
   if (lang === "en") write("", page({ ...m, depth: 0 }));
   else write("zh", page({ ...m, depth: 1 }));
 }
@@ -94,7 +97,7 @@ for (let s = 0; s <= total; s++) {
       url: alternates[lang],
       title: `${s}/${total} · ${v} · FrontierHuman`,
       desc: SHARE_TEXT[lang](s, total, v),
-      image: `${SITE}covers/${lang}/${s}.png`,
+      image: `${SITE}covers/${lang}/${s}.png?v=${COVER_V}`,
       alt: COPY[lang].scoreAlt(s, v),
       alternates
     }));

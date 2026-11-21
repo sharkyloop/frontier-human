@@ -55,6 +55,13 @@
       "wish": "The padding is ugly",
       "change": "The score on the report is now an evenly inset tile, with the same padding as the share card under it.",
       "change_zh": "报告里的分数改成了四边留白一致的卡片，和下面的分享卡片对齐。"
+    },
+    {
+      "date": "2026-11-21",
+      "author": "edward40e",
+      "wish": "The social media cover is not that good",
+      "change": "Redrew all 44 share covers: Sharky as the logo, solid outlines, an evenly padded score tile, and nothing important under X's title label.",
+      "change_zh": "重画了全部 44 张分享封面：Sharky 作 logo，实线边框，分数卡片留白一致，重要内容避开 X 的标题标签。"
     }
   ]
 }
